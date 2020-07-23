@@ -1,0 +1,12 @@
+@import url(../../fonts/fonts.css);
+@import url(./_place/_header/title_place_header.css);
+@import url(./_place/_no-result/title_place_no-result.css);
+@import url(./_place//_cards/title_place_cards.css);
+
+.title {
+    margin: 0;
+    font-family: 'Roboto Slab', Arial, sans-serif;
+    font-size: 36px;
+    line-height: 40px;
+    color: white;
+}

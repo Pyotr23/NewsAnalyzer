@@ -1,0 +1,16 @@
+.button {
+  height: 56px;
+  border-radius: 100px;
+  padding: 17px 16px;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: #2F71E5;
+  color: white;
+  border-width: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:focus {
+  outline: none;
+}

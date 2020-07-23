@@ -1,0 +1,9 @@
+.header__info {
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    color: #B6BCBF;
+    justify-content: space-between;
+    border-bottom: 1px solid #C4C4C4;
+    margin-bottom: 30px;
+}

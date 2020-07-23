@@ -1,28 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/header/header";
+import Loading from "./components/loading/loading";
+import NoResult from "./components/no-result/no-result";
+import Cards from "./components/cards/cards";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="hy">Hello world</h1>
-        <h1>Simple Hello world world</h1>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <React.StrictMode>
+    <Header />
+    <Loading />
+    <NoResult />
+    <Cards />
+  </React.StrictMode>
+);
 
 export default App;
