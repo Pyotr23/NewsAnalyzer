@@ -1,0 +1,16 @@
+@import url(../../fonts/fonts.css);
+@import url(./__logo/header-info__logo.css);
+@import url(./__nav-menu/header-info__nav-menu.css);
+@import url(./__page-links/header-info__page-links.css);
+@import url(./__link-item/header-info__link-item.css);
+@import url(./__link-item/_active/header-info__link-item_active.css);
+
+.header-info {
+  display: flex;
+  flex-direction: row;
+  height: 56px;
+  color: #B6BCBF;
+  justify-content: space-between;
+  border-bottom: 1px solid #C4C4C4;
+  margin-bottom: 30px;
+}

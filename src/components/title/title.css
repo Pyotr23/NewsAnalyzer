@@ -2,6 +2,7 @@
 @import url(./_place/_header/title_place_header.css);
 @import url(./_place/_no-result/title_place_no-result.css);
 @import url(./_place//_cards/title_place_cards.css);
+@import url(./_place/_author/title_place_author.css);
 
 .title {
     margin: 0;

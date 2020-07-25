@@ -1,0 +1,11 @@
+@import url(../../fonts/fonts.css);
+@import url(./_place/_cards/ref_place_cards.css);
+@import url(./_place/_footer/ref_place_footer.css);
+@import url(./_color/_white/ref_color_white.css);
+
+.ref {
+  font-family: 'Roboto', Arial, sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  color: #B6BCBF;
+}

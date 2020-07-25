@@ -1,0 +1,12 @@
+@import url(./__text-content/card__text-content.css);
+@import url(../../fonts/fonts.css);
+@import url(./__text-date/card__text-date.css);
+@import url(./__title/card__title.css);
+@import url(./__text/card__text.css);
+@import url(./__source/card__source.css);
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}

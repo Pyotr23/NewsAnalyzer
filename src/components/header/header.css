@@ -1,9 +1,6 @@
-@import url(./__nav-menu/header__nav-menu.css);
-@import url(./__info/header__info.css);
 @import url(../../fonts/fonts.css);
-@import url(./__page-links/header__page-links.css);
-@import url(./__link-item/header__link-item.css);
 @import url(./__text/header__text.css);
+@import url(./__title/header__title.css);
 
 .header {
     height: 536px;

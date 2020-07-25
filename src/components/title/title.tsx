@@ -5,9 +5,9 @@ const Title:React.FC<{title: string, modificatorClassName: string}> =
   ({title, modificatorClassName}) =>
   {
     const classes = `title ${modificatorClassName}`;
-    return <h1 className={classes}>
+    return <h2 className={classes}>
         {title}
-    </h1>
+    </h2>
   };
 
 export default Title;

@@ -1,4 +1,7 @@
+@import url(./__list/cards__list.css);
+
 .cards {
   margin: 0 auto;
   padding: 33px 16px 44px;
+  background: #E5E5E5;
 }

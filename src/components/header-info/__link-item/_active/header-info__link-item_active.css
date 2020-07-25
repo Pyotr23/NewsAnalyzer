@@ -1,0 +1,7 @@
+.header-info__link-item_active {
+    color: white;
+    border-bottom: 2px solid white;
+    box-shadow: 0 1px white;
+    margin-top: 2px;
+}
+

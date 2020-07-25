@@ -10,7 +10,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-    entry: { main: './src/index.tsx' },
+    entry: {
+      main: './src/index.tsx'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
@@ -35,7 +37,7 @@ module.exports = {
                 test: /\.js$/,
                 loader: "source-map-loader"
             },
-            { 
+            {
                 test: /\.js$/, // регулярное выражение, которое ищет все js файлы
                 use: { loader: "babel-loader" }, // весь JS обрабатывается пакетом babel-loader
                 exclude: /node_modules/ // исключает папку node_modules
@@ -44,7 +46,7 @@ module.exports = {
                 test: /\.css$/i,
                 use: [
                     (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                    'css-loader', 
+                    'css-loader',
                     'postcss-loader'
                 ]
             },
@@ -55,7 +57,7 @@ module.exports = {
                     options: {
                         name: './vendor/[name].[ext]'
                     }
-                }                
+                }
             },
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
@@ -68,14 +70,14 @@ module.exports = {
                 }
             }
         ]
-    },   
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
-        }),        
-        new HtmlWebpackPlugin({           
-            inject: true, 
-            template: './public/index.html', 
+        }),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/index.html',
             filename: 'index.html',
             favicon: "./public/favicon.ico"
         }),
@@ -87,6 +89,6 @@ module.exports = {
                     preset: ['default'],
             },
             canPrint: true
-        }),   
+        }),
     ]
 }
