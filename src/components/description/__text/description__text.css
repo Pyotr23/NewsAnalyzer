@@ -1,0 +1,9 @@
+.description__text {
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.description__text:last-child {
+  margin: 0;
+}

@@ -1,10 +1,15 @@
 import React from "react";
-import HeaderInfo from "../header-info/header-info";
+import AboutHeaderInfo from "../header-info/about-header-info";
+import Description from "../description/description";
+import Stack from "../stack/stack";
+import Author from "../author/author";
 
 const About = () => (
   <>
-    <HeaderInfo isHomeActive={false}/>
-    <h2>Вторая страничка</h2>
+    <AboutHeaderInfo />
+    <Description />
+    <Stack />
+    <Author />
   </>
 )
 

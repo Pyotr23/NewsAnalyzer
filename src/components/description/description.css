@@ -1,0 +1,7 @@
+@import url(../../fonts/fonts.css);
+@import url(./__text/description__text.css);
+
+.description {
+    margin: 16px;
+    font-family: 'Roboto', Arial, sans-serif;
+}

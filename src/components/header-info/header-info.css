@@ -3,7 +3,7 @@
 @import url(./__nav-menu/header-info__nav-menu.css);
 @import url(./__page-links/header-info__page-links.css);
 @import url(./__link-item/header-info__link-item.css);
-@import url(./__link-item/_active/header-info__link-item_active.css);
+@import url(./_not-home/header-info_not-home.css);
 
 .header-info {
   display: flex;

@@ -1,4 +1,5 @@
-@import url(./_active/header-info__link-item_active.css);
+@import url(./_color/_white/header-info__link-item_color_white.css);
+@import url(./_color/_black/header-info__link-item_color_black.css);
 
 .header-info__link-item {
     margin-right: 11px;

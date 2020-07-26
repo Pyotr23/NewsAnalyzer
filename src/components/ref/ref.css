@@ -2,6 +2,7 @@
 @import url(./_place/_cards/ref_place_cards.css);
 @import url(./_place/_footer/ref_place_footer.css);
 @import url(./_color/_white/ref_color_white.css);
+@import url(./_color/_black/ref_color_black.css);
 
 .ref {
   font-family: 'Roboto', Arial, sans-serif;
