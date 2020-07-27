@@ -3,6 +3,7 @@ import AboutHeaderInfo from "../header-info/about-header-info";
 import Description from "../description/description";
 import Stack from "../stack/stack";
 import Author from "../author/author";
+import Commits from "../commits/commits";
 
 const About = () => (
   <>
@@ -10,6 +11,7 @@ const About = () => (
     <Description />
     <Stack />
     <Author />
+    <Commits />
   </>
 )
 

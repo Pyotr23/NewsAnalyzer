@@ -1,4 +1,5 @@
 @import url(./_place/_cards/button_place_cards.css);
+@import url(./_place/_commits/button_place_commits.css);
 @import url(../../fonts/fonts.css);
 
 .button {

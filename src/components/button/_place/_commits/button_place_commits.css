@@ -1,0 +1,9 @@
+.button.button_place_commits {
+  color: #1A1B22;
+  background-color: transparent;
+  margin: 0 16px;
+  border: 1px solid #1A1B22;
+  width: -webkit-fill-available;
+  font-size: 18px;
+  line-height: 18px;
+}

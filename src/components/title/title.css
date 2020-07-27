@@ -5,6 +5,7 @@
 @import url(./_place/_author/title_place_author.css);
 @import url(./_place/_description/title_place_description.css);
 @import url(./_place/_stack/title_place_stack.css);
+@import url(./_place/_commits/title_place_commits.css);
 
 .title {
     margin: 0;
