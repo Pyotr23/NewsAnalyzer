@@ -1,0 +1,7 @@
+@import url(../../fonts/fonts.css);
+@import url(./__description/digits__description.css);
+
+.digits {
+    padding: 16px 16px 24px;
+    font-family: 'Roboto', Arial, sans-serif;
+}

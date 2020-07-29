@@ -1,0 +1,6 @@
+.table__line {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  border-bottom: 2px solid black;
+  width: 100%;
+}

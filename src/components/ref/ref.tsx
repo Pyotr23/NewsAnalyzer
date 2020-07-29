@@ -12,7 +12,7 @@ const Ref: FunctionComponent<RefProps> = ({text, href, modClassNames, children})
   const classes = `ref ${modClassNames}`;
   return href.startsWith("http")
     ? <a className={classes} href={href} target="_blank">{text}{children}</a>
-    : <Link className={classes} to={href}>{text}</Link>;
+    : <Link className={classes} to={href}>{text}{children}</Link>;
 }
 
 Ref.defaultProps = {

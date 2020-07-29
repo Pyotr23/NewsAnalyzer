@@ -6,6 +6,8 @@
 @import url(./_place/_description/title_place_description.css);
 @import url(./_place/_stack/title_place_stack.css);
 @import url(./_place/_commits/title_place_commits.css);
+@import url(./_place/_digits/title_place_digits.css);
+@import url(./_place/_daily/title_place_daily.css);
 
 .title {
     margin: 0;

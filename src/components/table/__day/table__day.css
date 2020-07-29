@@ -1,0 +1,7 @@
+.table__day {
+  margin: 0;
+  font-size: 18px;
+  line-height: 40px;
+  color: #1A1B22;
+  text-transform: lowercase;
+}

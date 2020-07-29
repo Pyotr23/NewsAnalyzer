@@ -10,4 +10,5 @@
 
 .form__input:focus {
   outline: none;
+  border: 3px solid #2F71E5;
 }

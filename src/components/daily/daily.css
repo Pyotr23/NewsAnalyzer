@@ -1,0 +1,7 @@
+@import url(../../fonts/fonts.css);
+
+.daily {
+    padding: 20px 16px 28px;
+    background: #F5F6F7;
+    font-family: 'Roboto', Arial, sans-serif;
+}

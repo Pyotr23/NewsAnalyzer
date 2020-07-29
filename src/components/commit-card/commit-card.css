@@ -10,9 +10,9 @@
   min-width: 288px;
   height: 264px;
   border-radius: 16px;
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
 
-.commit-card:last-child {
+/* .commit-card:last-child {
   margin-right: 0;
-}
+} */

@@ -1,6 +1,7 @@
 @import url(./_place/_cards/button_place_cards.css);
 @import url(./_place/_commits/button_place_commits.css);
 @import url(../../fonts/fonts.css);
+@import url(./_active/_blue/button_active_blue.css);
 
 .button {
   font-family: 'Roboto', Helvetica, sans-serif;
@@ -18,4 +19,8 @@
 
 .button:focus {
   outline: none;
+}
+
+.button:hover {
+  opacity: .9;
 }
