@@ -3,7 +3,12 @@
 .technology {
   max-width: 120px;
   margin: 0;
+  /* margin-bottom: 33px; */
   display: flex;
   flex-direction: column;
   text-align: center;
 }
+
+/* .technology:last-child  {
+  margin-bottom: 0;
+} */

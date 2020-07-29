@@ -2,6 +2,7 @@
     height: 536px;
     background-image: url(../../images/header-wrapper/background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     color: white;
 }
 

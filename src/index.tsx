@@ -13,6 +13,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Switch>
+          <Route exact path="/" component={About} />
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/analytics" component={Analytics} />

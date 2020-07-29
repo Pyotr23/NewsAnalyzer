@@ -2,5 +2,7 @@
 
 .stack {
   background: #F5F6F7;
-  padding: 44px 16px 40px
+  padding: 44px calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320)) 40px;
+  display: flex;
+  flex-direction: column;
 }
