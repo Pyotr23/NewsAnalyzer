@@ -5,3 +5,9 @@
   line-height: 24px;
   margin: 0 0 16px;
 }
+
+@media screen and (min-width: 423px){
+  .card__text-date {
+    margin-bottom: 6px;
+  }
+}

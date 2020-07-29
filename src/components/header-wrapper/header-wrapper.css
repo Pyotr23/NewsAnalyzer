@@ -1,0 +1,13 @@
+.header-wrapper {
+    height: 536px;
+    background-image: url(../../images/header-wrapper/background.jpg);
+    background-size: cover;
+    color: white;
+}
+
+@media screen and (min-width: 766px){
+  .header-wrapper{
+    background-image: url(../../images/header-wrapper/background-large.jpg);
+    height: 400px;
+  }
+}

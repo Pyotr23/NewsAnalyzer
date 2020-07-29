@@ -1,0 +1,18 @@
+@import url(./_color/_white/header__link-item_color_white.css);
+@import url(./_color/_black/header__link-item_color_black.css);
+
+.header__link-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.header__link-item:last-child {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 770px){
+  .header__link-item{
+    margin-right: calc(11px + (100vw - 320px)*(34 - 11)/(768 - 320));
+  }
+}

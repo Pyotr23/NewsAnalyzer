@@ -31,16 +31,18 @@ class Cards extends Component {
   ];
 
     return (
-      <main className="cards">
-        <Title title="Результаты поиска" modificatorClassName="title_place_cards"/>
-        <Ref text="Посмотреть аналитику >" href="/analytics" modClassNames="ref_place_cards"/>
+      <section className="cards">
+        <div className="cards__header">
+          <Title title="Результаты поиска" modificatorClassName="title_place_cards"/>
+          <Ref text="Посмотреть аналитику >" href="/analytics" modClassNames="ref_place_cards"/>
+        </div>
         <ul className="cards__list">
           {initialCards.map(({ contentDate, title, text, source }) => (
             <Card key="1" contentDate={contentDate} title={title} text={text} source={source}/>
           ))}
         </ul>
         <Button text="Показать ещё" modificatorClassName="button_place_cards"/>
-      </main>
+      </section>
     )
   }
 }

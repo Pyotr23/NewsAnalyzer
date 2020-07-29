@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../header/header";
+import HeaderWrapper from "../header-wrapper/header-wrapper";
 import Cards from "../cards/cards";
 import Author from "../author/author";
 
 const Home = () => (
   <>
-    <Header />
+    <HeaderWrapper />
     <Cards />
     <Author />
   </>

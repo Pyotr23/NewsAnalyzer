@@ -1,11 +1,11 @@
 import React from "react";
-import AnalyticsHeaderInfo from "../header-info/analytics-header-info";
+import AnalyticsHeader from "../header/analytics-header";
 import Digits from "../digits/digits";
 import Daily from "../daily/daily";
 
 const Analytics = () => (
   <>
-    <AnalyticsHeaderInfo />
+    <AnalyticsHeader />
     <Digits />
     <Daily />
   </>

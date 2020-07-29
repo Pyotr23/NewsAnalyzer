@@ -5,3 +5,14 @@
 .footer__link-item:last-child {
   margin-bottom: 0;
 }
+
+@media screen and (min-width: 766px){
+  .footer__link-item {
+    margin-bottom: 0;
+    margin-right: 25px;
+  }
+
+  .footer__link-item:last-child {
+    margin-right: 0;
+  }
+}

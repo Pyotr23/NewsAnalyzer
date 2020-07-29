@@ -6,9 +6,19 @@
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 16px;
+  max-width: 310px;
+  width: 100%;
 }
 
 .form__input:focus {
   outline: none;
   border: 3px solid #2F71E5;
+}
+
+@media screen and (min-width: 766px){
+  .form__input{
+    margin-bottom: 0;
+    max-width: 100%;
+    padding-right: calc(160px + 16px);  /* Длина кнопки "Искать" + внутренний отступ */
+  }
 }

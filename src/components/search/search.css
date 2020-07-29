@@ -1,0 +1,14 @@
+@import url(./__title/search__title.css);
+@import url(./__text/search__text.css);
+@import url(../../fonts/fonts.css);
+
+.search {
+  margin: 0 auto;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+@media screen and (max-width: 770px){
+  .search{
+    padding: 0 calc(16px + (100vw - 320px)*(160 - 16)/(768 - 320));
+  }
+}

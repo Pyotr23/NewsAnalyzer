@@ -1,0 +1,14 @@
+.search__text {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0;
+  margin-bottom: 65px;
+}
+
+@media screen and (min-width: 766px){
+  .search__text{
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+}

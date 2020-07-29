@@ -3,10 +3,19 @@
 @import url(./__description/author__description.css);
 
 .author {
-  margin: 32px 16px;
+  margin: 32px calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320));
   font-family: 'Roboto', Arial, sans-serif;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media screen and (min-width: 766px){
+  .author{
+    margin-top: 40px;
+    margin-bottom: 48px;
+    flex-direction: row;
+    align-items: center;
+  }
 }
