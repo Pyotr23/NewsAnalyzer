@@ -2,5 +2,11 @@
   font-size: 30px;
   line-height: 40px;
   color: #1A1B22;
-  margin: 0 16px 16px;
+  max-width: 336px;
+}
+
+@media screen and (min-width: 423px){
+  .title.title_place_commits {
+    line-height: 34px;
+  }
 }

@@ -4,3 +4,9 @@
   color: #B6BCBF;
   margin: 0 0 10px 0;
 }
+
+@media screen and (min-width: 427px){
+  .commit-card__date{
+    margin-bottom: 20px;
+  }
+}

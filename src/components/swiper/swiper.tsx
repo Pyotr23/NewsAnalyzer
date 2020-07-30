@@ -1,7 +1,8 @@
 import React from "react";
 import "./swiper.css";
 import Flickity from "react-flickity-component";
-import "../../../node_modules/flickity/css/flickity.css";
+import "./flickity.css";
+// import "../../../node_modules/flickity/css/flickity.css";
 import CommitCard from "../commit-card/commit-card";
 
 const Swiper = () => {

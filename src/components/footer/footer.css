@@ -8,7 +8,7 @@
 @import url(./__text-container/footer__text-container.css);
 
 .footer {
-    margin: 18px calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320)) 22px;
+    margin: 0 calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320)) 22px;
     background-color: white;
     display: flex;
     flex-direction: row;

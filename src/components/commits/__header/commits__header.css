@@ -1,0 +1,13 @@
+.commits__header {
+  display: flex;
+  flex-direction: row;
+  margin: 0 calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320)) 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 423px){
+  .commits__header{
+    margin-bottom: 30px;
+  }
+}

@@ -6,6 +6,7 @@
 @import url(./_hover/_white/ref_hover_white.css);
 @import url(./_hover/_black/ref_hover_black.css);
 @import url(./_place/_commit-card/ref_place_commit-card.css);
+@import url(./_place/_commits/ref_place_commits.css);
 
 .ref {
   font-family: 'Roboto', Arial, sans-serif;
