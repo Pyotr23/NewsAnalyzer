@@ -10,4 +10,7 @@
   margin: auto 0 auto 22px;
   height: 24px;
   padding-left: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

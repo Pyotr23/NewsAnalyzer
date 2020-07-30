@@ -4,6 +4,7 @@
 @import url(./__second-column/table__second-column.css);
 @import url(./__header/table__header.css);
 @import url(./__line/table__line.css);
+@import url(./__shifter/table__shifter.css);
 
 .table {
   font-family: 'Roboto', Arial, sans-serif;
