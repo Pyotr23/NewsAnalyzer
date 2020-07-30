@@ -4,3 +4,9 @@
   color: #1A1B22;
   margin-bottom: 16px;
 }
+
+@media screen and (min-width: 427px){
+  .title.title_place_digits {
+    margin-bottom: 24px;
+  }
+}
