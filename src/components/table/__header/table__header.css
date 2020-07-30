@@ -1,9 +1,11 @@
 .table__header {
-  margin: 0;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #B6BCBF;
-  display: block;
+  margin-top: 0;
+  margin-bottom: 10px;
+  background-color: transparent;
+  font-weight: normal;
 }

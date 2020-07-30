@@ -1,0 +1,13 @@
+.table__second-column {
+  margin: 0;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 12px;
+  line-height: 24px;
+  color: white;
+  background-color: #2F71E5;
+  width: 100%;
+  margin: auto 0 auto 22px;
+  height: 24px;
+  padding-left: 6px;
+}

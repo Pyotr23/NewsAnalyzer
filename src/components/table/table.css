@@ -1,12 +1,10 @@
 @import url(../../fonts/fonts.css);
+@import url(./__row/table__row.css);
+@import url(./__first-column/table__first-column.css);
+@import url(./__second-column/table__second-column.css);
 @import url(./__header/table__header.css);
 @import url(./__line/table__line.css);
-@import url(./__day/table__day.css);
-@import url(./__percent/table__percent.css);
 
 .table {
   font-family: 'Roboto', Arial, sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 8px;
 }
