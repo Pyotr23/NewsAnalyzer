@@ -7,7 +7,7 @@
   color: white;
   background-color: #2F71E5;
   width: 100%;
-  margin: auto 0 auto 22px;
+  margin: auto 0 auto calc(22px + (100vw - 320px)*(50 - 22)/(768 - 320));
   height: 24px;
   padding-left: 6px;
   display: flex;

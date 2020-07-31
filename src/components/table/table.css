@@ -5,6 +5,8 @@
 @import url(./__header/table__header.css);
 @import url(./__line/table__line.css);
 @import url(./__shifter/table__shifter.css);
+@import url(./__digits/table__digits.css);
+@import url(./__digit/table__digit.css);
 
 .table {
   font-family: 'Roboto', Arial, sans-serif;

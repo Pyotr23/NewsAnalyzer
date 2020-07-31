@@ -1,7 +1,7 @@
 @import url(../../fonts/fonts.css);
 
 .daily {
-    padding: 20px 16px 26px;
+    padding: calc(20px + (100vw - 320px)*(40 - 20)/(768 - 320)) calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320)) 26px;
     background: #F5F6F7;
     font-family: 'Roboto', Arial, sans-serif;
 }

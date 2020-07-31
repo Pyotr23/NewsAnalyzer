@@ -5,3 +5,9 @@
   width: 80px;
   margin: 0;
 }
+
+@media screen and (min-width: 423px){
+  .table__first-column {
+    line-height: 20px;
+  }
+}
