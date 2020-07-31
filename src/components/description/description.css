@@ -2,7 +2,7 @@
 @import url(./__text/description__text.css);
 
 .description {
-  padding: 16px calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320));
+  padding: 16px calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320)) 16px;
   font-family: 'Roboto', Arial, sans-serif;
 }
 
@@ -10,5 +10,17 @@
   .description{
     padding-top: 30px;
     padding-bottom: 56px;
+  }
+}
+
+@media screen and (min-width: 766px){
+  .description{
+    padding: calc(16px + (100vw - 768px)*(80 - 16)/(1440 - 768)) calc(40px + (100vw - 768px)*(104 - 40)/(1440 - 768)) calc(16px + (100vw - 768px)*(94 - 16)/(1440 - 768));
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .description{
+    padding: 80px 104px 96px;
   }
 }

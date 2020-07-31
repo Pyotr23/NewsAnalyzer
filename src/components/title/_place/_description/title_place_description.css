@@ -10,3 +10,11 @@
     margin-bottom: 12px;
   }
 }
+
+@media screen and (min-width: 1024px){
+  .title.title_place_description{
+    font-size: 40px;
+    line-height: 46px;
+    margin-bottom: 24px;
+  }
+}
