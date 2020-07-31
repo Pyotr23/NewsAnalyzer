@@ -9,7 +9,17 @@
 @media screen and (min-width: 766px){
   .footer__link-item {
     margin-bottom: 0;
-    margin-right: 25px;
+    margin-right: calc(25px + (100vw - 768px)*(43 - 25)/(1440 - 768));
+  }
+
+  .footer__link-item:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .footer__link-item {
+    margin-right: 43px;
   }
 
   .footer__link-item:last-child {

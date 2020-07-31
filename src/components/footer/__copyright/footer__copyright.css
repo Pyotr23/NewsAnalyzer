@@ -8,6 +8,12 @@
 
 @media screen and (min-width: 766px){
   .footer__copyright {
-    margin-right: 25px;
+    margin-right: calc(25px + (100vw - 768px)*(250 - 25)/(1440 - 768));
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .footer__copyright {
+    margin-right: 250px;
   }
 }
