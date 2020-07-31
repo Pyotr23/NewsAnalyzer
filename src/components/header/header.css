@@ -13,7 +13,7 @@
   color: #B6BCBF;
   justify-content: space-between;
   border-bottom: 1px solid #C4C4C4;
-  margin: 0 calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320));
+  padding: 0 calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320));
   /* max-width: 1232px; */
 }
 
@@ -26,7 +26,7 @@
 
 @media screen and (min-width: 770px){
   .header{
-    margin: 0 calc(40px + (100vw - 768px)*(104 - 40)/(1440 - 768));
+    padding: 0 calc(40px + (100vw - 768px)*(104 - 40)/(1440 - 768));
   }
 }
 
@@ -38,6 +38,6 @@
 
 @media screen and (min-width: 1440px){
   .header{
-    margin: 0 104px;
+    padding: 0 calc((100% - 1232px)/2);
   }
 }
