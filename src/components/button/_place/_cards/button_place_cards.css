@@ -12,3 +12,9 @@
     max-width: 240px;
   }
 }
+
+@media screen and (min-width: 770px){
+  .button.button_place_cards {
+    max-width: 288px;
+  }
+}

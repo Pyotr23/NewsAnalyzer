@@ -11,3 +11,9 @@
     margin-bottom: 6px;
   }
 }
+
+@media screen and (min-width: 770px){
+  .card__text-date {
+    margin-bottom: 14px;
+  }
+}

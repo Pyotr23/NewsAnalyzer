@@ -8,6 +8,6 @@
   .cards__header{
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 32px;
+    margin-bottom: calc(32px + (100vw - 768px)*(64 - 32)/(1440 - 768));
   }
 }

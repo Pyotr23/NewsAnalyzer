@@ -5,3 +5,9 @@
   margin-right: 12px;
   margin-bottom: 0;
 }
+
+@media screen and (min-width: 770px){
+  .ref.ref_place_cards {
+    margin-bottom: auto;
+  }
+}

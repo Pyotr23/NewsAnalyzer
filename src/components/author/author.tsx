@@ -5,7 +5,9 @@ import photo from "../../images/author/avatar.jpg";
 
 const Author = () => (
   <section className="author">
-    <img className="author__photo" src={photo} alt="фотография автора"/>
+    <div className="author__photo-wrapper">
+      <img className="author__photo" src={photo} alt="фотография автора"/>
+    </div>
     <div className="author__column">
       <Title title="Об авторе" modificatorClassName="title_place_author" />
       <p className="author__description">
