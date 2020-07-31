@@ -9,6 +9,12 @@
 @media screen and (min-width: 766px){
   .header-wrapper{
     background-image: url(../../images/header-wrapper/background-large.jpg);
-    height: 400px;
+    height: calc(400px + (100vw - 768px)*(576 - 400)/(1440 - 768));
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .header-wrapper{
+    height: 576px;
   }
 }
