@@ -13,3 +13,21 @@
     padding-bottom: 36px;
   }
 }
+
+@media screen and (min-width: 770px){
+  .digits{
+    padding: 32px calc(40px + (100vw - 768px)*(104 - 40)/(1440 - 768)) calc(36px + (100vw - 768px)*(76 - 36)/(1440 - 768));
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .digits{
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .digits{
+    padding: 40px calc((100% - 1232px)/2) 76px;
+  }
+}

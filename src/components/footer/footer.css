@@ -29,3 +29,9 @@
     padding-top: 30px;
   }
 }
+
+@media screen and (min-width: 1440px){
+  .footer {
+    margin: 0 calc((100% - 1232px)/2) 30px;
+  }
+}

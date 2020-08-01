@@ -10,3 +10,9 @@
     font-size: 26px;
   }
 }
+
+@media screen and (min-width: 770px){
+  .title.title_place_daily {
+    margin-bottom: 48px;
+  }
+}

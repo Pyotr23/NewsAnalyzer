@@ -16,6 +16,6 @@
 @media screen and (min-width: 1338px){
   .stack{
     flex-direction: row;
-    padding: 80px 104px 86px
+    padding: 80px calc((100% - 1232px)/2) 86px
   }
 }

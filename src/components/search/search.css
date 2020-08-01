@@ -23,7 +23,7 @@
 
 @media screen and (min-width: 1440px){
   .search{
-    padding: 0 416px;
+    padding: 0 calc((100% - 608px)/2);
     margin-top: 80px;
   }
 }
