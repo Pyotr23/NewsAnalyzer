@@ -4,7 +4,6 @@
 @import url(./__link-item/header__link-item.css);
 @import url(./__logo-wrapper/header__logo-wrapper.css);
 @import url(./__logo/header__logo.css);
-@import url(./__logo/_black/header__logo_black.css);
 
 .header {
   display: flex;

@@ -1,9 +1,0 @@
-.header__logo.header__logo_black {
-  content: url(../../../../images/header/logo-black.svg);
-}
-
-@media screen and (min-width: 423px){
-  .header__logo.header__logo_black {
-    content: url(../../../../images/header/logo-black-large.svg);
-  }
-}

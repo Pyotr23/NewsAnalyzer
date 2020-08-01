@@ -14,7 +14,7 @@ type CardProps = {
 const Card = ({imageSource, contentDate, title, text, source}: CardProps) => (
   <li className="card">
     <Ref href="https:\\google.com">
-      <img className="card__image" src={image}/>
+      <img className="card__image" src={image} alt="заглавная картинка"/>
       <div className="card__text-content">
         <p className="card__text-date">{contentDate}</p>
         <h3 className="card__title">{title}</h3>
