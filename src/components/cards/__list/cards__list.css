@@ -8,13 +8,18 @@
   grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
 }
 
+@media screen and (min-width: 766px){
+  .cards__list {
+    margin-bottom: calc(32px + (100vw - 768px)*(64 - 32)/(1440 - 768));
+  }
+}
+
 @media screen and (min-width: 1024px){
   .cards__list {
     margin-bottom: 32px;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 16px;
     grid-column-gap: 16px;
-    margin-bottom: calc(12px + (100vw - 768px)*(64 - 12)/(1440 - 768));
   }
 }
 

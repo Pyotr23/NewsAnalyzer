@@ -19,14 +19,8 @@
 @media screen and (min-width: 766px){
   .footer {
     margin: 0 calc(40px + (100vw - 768px)*(104 - 40)/(1440 - 768));
-    padding-top: 24px;
+    padding-top: 20px;
     margin-bottom: 18px;
-  }
-}
-
-@media screen and (min-width: 766px){
-  .footer {
-    padding-top: 30px;
   }
 }
 
