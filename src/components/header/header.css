@@ -1,0 +1,41 @@
+@import url(../../fonts/fonts.css);
+@import url(./__nav-menu/header__nav-menu.css);
+@import url(./__page-links/header__page-links.css);
+@import url(./__link-item/header__link-item.css);
+@import url(./__logo-wrapper/header__logo-wrapper.css);
+@import url(./__logo/header__logo.css);
+
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 56px;
+  color: #B6BCBF;
+  justify-content: space-between;
+  border-bottom: 1px solid #C4C4C4;
+  padding: 0 calc(16px + (100vw - 320px)*(40 - 16)/(768 - 320));
+}
+
+@media screen and (min-width: 423px){
+  .header{
+    height: 64px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 770px){
+  .header{
+    padding: 0 calc(40px + (100vw - 768px)*(104 - 40)/(1440 - 768));
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .header{
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .header{
+    padding: 0 calc((100% - 1232px)/2);
+  }
+}

@@ -1,0 +1,13 @@
+@import url(../../fonts/fonts.css);
+@import url(./__row/table__row.css);
+@import url(./__first-column/table__first-column.css);
+@import url(./__second-column/table__second-column.css);
+@import url(./__header/table__header.css);
+@import url(./__line/table__line.css);
+@import url(./__shifter/table__shifter.css);
+@import url(./__digits/table__digits.css);
+@import url(./__digit/table__digit.css);
+
+.table {
+  font-family: 'Roboto', Arial, sans-serif;
+}
