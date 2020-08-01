@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "./js/[name].[chunkhash].js"
+        filename: "[name].[chunkhash].js"
     },
     devtool: "source-map",
     resolve: {
@@ -75,7 +75,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "./css/[name].[contenthash].css"
+            filename: "style.[contenthash].css"
         }),
         new HtmlWebpackPlugin({
             inject: true,

@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, HashRouter } from "react-router-dom";
 import Home from "./components/home/home";
 import About from "./components/about/about";
 import Analytics from "./components/analytics/analytics"
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <App>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -18,7 +18,7 @@ ReactDOM.render(
           <Route path="/analytics" component={Analytics} />
         </Switch>
       </App>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
