@@ -4,6 +4,7 @@ import Flickity from "react-flickity-component";
 import "./flickity.css";
 // import "../../../node_modules/flickity/css/flickity.css";
 import CommitCard from "../commit-card/commit-card";
+import "./flickity-modify.css";
 
 const Swiper = () => {
   const flickityOptions = {

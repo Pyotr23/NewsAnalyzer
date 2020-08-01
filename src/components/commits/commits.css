@@ -12,3 +12,15 @@
     padding-bottom: 36px;
   }
 }
+
+@media screen and (min-width: 768px){
+  .commits{
+    padding: calc(40px + (100vw - 768px)*(72 - 40)/(1440 - 768)) 0 calc(36px + (100vw - 768px)*(90 - 36)/(1440 - 768));
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .commits{
+    padding: 72px 0 90px;
+  }
+}
