@@ -1,21 +1,23 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 new webpack.DefinePlugin({
-    'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    "NODE_ENV": JSON.stringify(process.env.NODE_ENV)
 });
-const WebpackMd5Hash = require('webpack-md5-hash');
+const WebpackMd5Hash = require("webpack-md5-hash");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const isDev = process.env.NODE_ENV === 'development';
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
     entry: {
-      main: './src/index.tsx'
+      index: "./src/index.tsx",
+      // about: "./src/about.tsx",
+      // analytics: "./src/analytics"
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js'
+        path: path.resolve(__dirname, "dist"),
+        filename: "./js/[name].[chunkhash].js"
     },
     devtool: "source-map",
     resolve: {
@@ -45,26 +47,26 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [
-                    (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                    'css-loader',
-                    'postcss-loader'
+                    (isDev ? "style-loader" : MiniCssExtractPlugin.loader),
+                    "css-loader",
+                    "postcss-loader"
                 ]
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
                 use: {
-                    loader: 'file-loader',
+                    loader: "file-loader",
                     options: {
-                        name: './vendor/[name].[ext]'
+                        name: "./vendor/[name].[ext]"
                     }
                 }
             },
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
                 use: {
-                    loader: 'file-loader',
+                    loader: "file-loader",
                     options: {
-                        name: './images/[name].[ext]',
+                        name: "./images/[name].[ext]",
                         esModule: false
                     }
                 }
@@ -73,20 +75,20 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css'
+            filename: "./css/[name].[contenthash].css"
         }),
         new HtmlWebpackPlugin({
             inject: true,
-            template: './public/index.html',
-            filename: 'index.html',
+            template: "./public/index.html",
+            filename: "index.html",
             favicon: "./public/favicon.ico"
         }),
         new WebpackMd5Hash(),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
+            cssProcessor: require("cssnano"),
             cssProcessorPluginOptions: {
-                    preset: ['default'],
+                    preset: ["default"],
             },
             canPrint: true
         }),
