@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import Home from "./components/home/home";
 import About from "./components/about/about";
 import Analytics from "./components/analytics/analytics"
