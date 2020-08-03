@@ -1,0 +1,14 @@
+@import url(./__item/input__item.css);
+
+.input {
+  width: 100%;
+  max-width: 310px;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 766px){
+  .input {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+}
