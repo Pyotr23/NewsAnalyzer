@@ -1,5 +1,7 @@
 @import url(./__input/form__input.css);
 @import url(../../fonts/fonts.css);
+@import url(./__input-container/form__input-container.css);
+@import url(./__input-error/form__input-error.css);
 
 .form {
   display: flex;
