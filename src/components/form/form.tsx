@@ -1,6 +1,7 @@
 import React, { Component, FormHTMLAttributes } from "react";
 import "./form.css";
 import Button from '../button/button';
+import NewsApi, { INewsResponse } from "../../ts/modules/NewsApi";
 
 interface FormProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
@@ -50,7 +51,8 @@ class Form extends Component<FormProps, FormState> {
       isValid
     });
     if (isValid){
-      console.log("Годится!")
+      NewsApi<INewsResponse>(value)
+        .then((resp) => { console.log(resp) })
     }
     else {
       console.log("Плохо!");
