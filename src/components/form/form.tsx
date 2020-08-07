@@ -1,19 +1,12 @@
-import React, { Component, FormHTMLAttributes } from "react";
+import React, { Component } from "react";
 import "./form.css";
 import Button from '../button/button';
-import NewsApi, { INewsResponse } from "../../ts/modules/NewsApi";
-
-interface FormProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  error?: string;
-}
-
-type FormState = {
-  value: string,
-  error: string,
-  isValid: boolean
-}
+import NewsApi from "../../ts/modules/NewsApi";
+import { INewsResponse, FormProps, FormState } from "../../ts/types";
+import { FormContext } from "../home/home";
 
 class Form extends Component<FormProps, FormState> {
+
   constructor(props: FormProps) {
     super(props);
     this.state = {
@@ -30,7 +23,7 @@ class Form extends Component<FormProps, FormState> {
     isValid = value.length !== 0;
     error = isValid
       ? ""
-      : "Нужно ввести ключевое слово";
+      : this.props.error;
     this.setState({
       value,
       error,
@@ -44,7 +37,7 @@ class Form extends Component<FormProps, FormState> {
     isValid = value.length !== 0;
     error = isValid
       ? ""
-      : "Нужно ввести ключевое слово";
+      : this.props.error;
     this.setState({
       value,
       error,
