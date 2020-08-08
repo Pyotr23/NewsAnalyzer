@@ -28,6 +28,23 @@ class Home extends Component {
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const { value } = e.target;
+    this._refreshFormState(value);
+  }
+
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let { value } = this.state;
+    this._refreshFormState(value);
+    if (value.length !== 0){
+      NewsApi<INewsResponse>(value)
+        .then((resp) => { console.log(resp) })
+    }
+    else {
+      console.log("Плохо!");
+    }
+  }
+
+  private _refreshFormState(value: string): void {
     let { error, inputStyle } = this.state;
     const isValid = value.length !== 0;
     error = isValid
@@ -44,30 +61,6 @@ class Home extends Component {
     });
   }
 
-  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    let { error, value, inputStyle } = this.state;
-    const isValid = value.length !== 0;
-    error = isValid
-      ? ""
-      : REQUIRED_VALIDATE_INPUT_TEXT;
-    inputStyle = isValid
-      ? "form__input"
-      : "form__input form__input_error";
-    this.setState({
-      value,
-      error,
-      isValid,
-      inputStyle
-    });
-    if (isValid){
-      NewsApi<INewsResponse>(value)
-        .then((resp) => { console.log(resp) })
-    }
-    else {
-      console.log("Плохо!");
-    }
-  }
 
   render() {
     const { inputStyle, error } = this.state;
