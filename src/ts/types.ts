@@ -31,8 +31,11 @@ export interface IGetArticlesAction {
 
 
 
-export interface FormProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  error: string;
+export interface FormProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  inputStyle: string,
+  errorText: string,
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
 }
 
 export type FormState = {
@@ -43,7 +46,5 @@ export type FormState = {
 
 
 
-export interface IFormContext {
-  inputErrorText: string
+export interface IFormContext extends FormProps {
 }
-

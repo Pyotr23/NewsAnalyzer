@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Switch, Route, HashRouter } from "react-router-dom";
-import Home from "./components/home/home";
+import Home from "./containers/home/home";
 import About from "./components/about/about";
 import Analytics from "./components/analytics/analytics"
 
