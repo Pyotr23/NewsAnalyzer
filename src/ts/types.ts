@@ -40,3 +40,8 @@ export interface IFormProps {
 export interface IHomeContext {
   formProps: IFormProps
 }
+
+
+export interface ILoadingProps {
+  isVisible: boolean;
+}

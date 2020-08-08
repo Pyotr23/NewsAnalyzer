@@ -24,7 +24,8 @@ class Home extends Component {
   state = {
     value: "",
     error: "",
-    inputStyle: "form__input"
+    inputStyle: "form__input",
+    isLoading: false
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,11 +39,14 @@ class Home extends Component {
     let { value } = this.state;
     this._refreshFormState(value);
     if (value.length !== 0){
-      NewsApi<INewsResponse>(value)
-        .then((resp) => { console.log(resp) })
-    }
-    else {
-      console.log("Плохо!");
+      this.setState({ isLoading: true }, () => {
+        NewsApi<INewsResponse>(value)
+          .then(resp => {
+            console.log(resp);
+            this.setState({ isLoading: false })
+          })
+          .catch(text => console.log(text))
+      });
     }
   }
 
@@ -65,7 +69,7 @@ class Home extends Component {
 
 
   render() {
-    const { inputStyle, error } = this.state;
+    const { inputStyle, error, isLoading } = this.state;
     const context = {
       formProps: {
         onChange: this.handleInputChange,
@@ -76,7 +80,7 @@ class Home extends Component {
     }
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
-      <Loading />
+      <Loading isVisible = { isLoading }/>
       <NoResult />
       <Cards />
       <Author />

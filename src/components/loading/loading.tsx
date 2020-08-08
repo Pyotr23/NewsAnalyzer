@@ -1,8 +1,9 @@
 import './loading.css';
 import React from 'react';
+import {ILoadingProps} from "../../ts/types";
 
-const Loading = () => (
-  <div className="loading">
+const Loading = ({isVisible}: ILoadingProps) => (
+  <div className={isVisible ? "loading loading_visible" : "loading"}>
     <i className="loading__spinner"/>
     <p className="loading__text">Идёт загрузка новостей...</p>
   </div>
