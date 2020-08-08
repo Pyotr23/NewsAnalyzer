@@ -7,8 +7,8 @@ import Loading from "../../components/loading/loading";
 import NoResult from "../../components/no-result/no-result";
 
 import { IHomeContext } from "../../ts/types";
-import { REQUIRED_VALIDATE_INPUT_TEXT } from "../../ts/constants";
-import NewsApi from "../../ts/modules/NewsApi";
+import { REQUIRED_VALIDATE_INPUT_TEXT, BAD_NEWS_API_RESULT } from "../../ts/constants";
+import getNews from "../../ts/modules/NewsApi";
 import { INewsResponse, IFormProps } from "../../ts/types";
 
 export const FormContext = React.createContext<IHomeContext>({
@@ -40,12 +40,13 @@ class Home extends Component {
     this._refreshFormState(value);
     if (value.length !== 0){
       this.setState({ isLoading: true }, () => {
-        NewsApi<INewsResponse>(value)
+        getNews<INewsResponse>(value)
           .then(resp => {
             console.log(resp);
-            this.setState({ isLoading: false })
+
           })
-          .catch(text => console.log(text))
+          .catch(() => console.log(BAD_NEWS_API_RESULT))
+          .finally(() => this.setState({ isLoading: false }));
       });
     }
   }
