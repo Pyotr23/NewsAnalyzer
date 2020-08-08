@@ -1,56 +1,9 @@
 import React, { Component } from "react";
 import "./form.css";
 import Button from '../button/button';
-import NewsApi from "../../ts/modules/NewsApi";
-import { INewsResponse, FormProps, FormState } from "../../ts/types";
+import { IFormProps } from "../../ts/types";
 
-class Form extends Component<FormProps, FormState> {
-
-  // constructor(props: FormProps) {
-  //   super(props);
-  //   this.state = {
-  //     value: "",
-  //     error: "",
-  //     isValid: false
-  //   };
-  // }
-
-  // handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   e.preventDefault();
-  //   const { value } = e.target;
-  //   let { error, isValid } = this.state;
-  //   isValid = value.length !== 0;
-  //   error = isValid
-  //     ? ""
-  //     : this.props.error;
-  //   this.setState({
-  //     value,
-  //     error,
-  //     isValid
-  //   });
-  // }
-
-  // handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   let { error, isValid, value } = this.state;
-  //   isValid = value.length !== 0;
-  //   error = isValid
-  //     ? ""
-  //     : "Проблеме";
-  //   this.setState({
-  //     value,
-  //     error,
-  //     isValid
-  //   });
-  //   if (isValid){
-  //     NewsApi<INewsResponse>(value)
-  //       .then((resp) => { console.log(resp) })
-  //   }
-  //   else {
-  //     console.log("Плохо!");
-  //   }
-  // }
-
+class Form extends Component<IFormProps, {}> {
   render() {
     const { errorText, onChange, onSubmit, inputStyle } = this.props;
     return <form className="form" onSubmit={ onSubmit }>
@@ -62,7 +15,5 @@ class Form extends Component<FormProps, FormState> {
     </form>
   };
 }
-
-
 
 export default Form;

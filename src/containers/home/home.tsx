@@ -6,16 +6,18 @@ import Author from "../../components/author/author";
 import Loading from "../../components/loading/loading";
 import NoResult from "../../components/no-result/no-result";
 
-import { IFormContext } from "../../ts/types";
+import { IHomeContext } from "../../ts/types";
 import { REQUIRED_VALIDATE_INPUT_TEXT } from "../../ts/constants";
 import NewsApi from "../../ts/modules/NewsApi";
-import { INewsResponse, FormProps, FormState } from "../../ts/types";
+import { INewsResponse, IFormProps } from "../../ts/types";
 
-export const FormContext = React.createContext<IFormContext>({
-  onChange: () => {},
-  onSubmit: () => {},
-  inputStyle: "",
-  errorText: "",
+export const FormContext = React.createContext<IHomeContext>({
+  formProps: {
+    onChange: () => {},
+    onSubmit: () => {},
+    inputStyle: "",
+    errorText: "",
+  }
 });
 
 class Home extends Component {
@@ -64,13 +66,21 @@ class Home extends Component {
 
   render() {
     const { inputStyle, error } = this.state;
-  return <FormContext.Provider value = {{ onChange: this.handleInputChange, onSubmit: this.handleSubmit, inputStyle: inputStyle, errorText: error }}>
-    <HeaderWrapper />
-    <Loading />
-    <NoResult />
-    <Cards />
-    <Author />
-  </FormContext.Provider>
+    const context = {
+      formProps: {
+        onChange: this.handleInputChange,
+        onSubmit: this.handleSubmit,
+        inputStyle: inputStyle,
+        errorText: error
+      }
+    }
+    return <FormContext.Provider value = { context }>
+      <HeaderWrapper />
+      <Loading />
+      <NoResult />
+      <Cards />
+      <Author />
+    </FormContext.Provider>
   }
 }
 

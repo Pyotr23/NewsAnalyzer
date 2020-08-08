@@ -23,28 +23,20 @@ interface ISource {
 }
 
 
-
 export interface IGetArticlesAction {
   type: typeof GET_ARTICLES;
   payload: INews[]
 }
 
 
-
-export interface FormProps {
+export interface IFormProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
   inputStyle: string,
   errorText: string,
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
 }
 
-export type FormState = {
-  value: string,
-  error: string,
-  isValid: boolean
-}
 
-
-
-export interface IFormContext extends FormProps {
+export interface IHomeContext {
+  formProps: IFormProps
 }
