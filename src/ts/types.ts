@@ -1,4 +1,4 @@
-import { GET_ARTICLES } from "./constants";
+import { ADD_ARTICLES } from "./constants";
 
 export interface INewsResponse {
   status: string,
@@ -6,14 +6,14 @@ export interface INewsResponse {
   articles: INews[]
 }
 
-interface INews {
-  source: ISource,
+export interface INews {
+  source?: ISource,
   author: string,
   title: string,
   description: string,
   url: string,
   urlToImage: string,
-  publishedAt: Date,
+  publishedAt?: Date,
   content: string
 }
 
@@ -24,7 +24,7 @@ interface ISource {
 
 
 export interface IGetArticlesAction {
-  type: typeof GET_ARTICLES;
+  type: typeof ADD_ARTICLES;
   payload: INews[]
 }
 

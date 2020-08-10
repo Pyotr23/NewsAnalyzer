@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
 import Home from "./containers/home/home";
 import About from "./components/about/about";
-import Analytics from "./components/analytics/analytics"
+import Analytics from "./components/analytics/analytics";
+import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
       <App>
         <Switch>
@@ -19,6 +22,7 @@ ReactDOM.render(
         </Switch>
       </App>
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

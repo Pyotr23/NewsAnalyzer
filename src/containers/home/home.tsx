@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import HeaderWrapper from "../../components/header-wrapper/header-wrapper";
 import Cards from "../../components/cards/cards";
@@ -9,7 +10,9 @@ import NoResult from "../../components/no-result/no-result";
 import { IHomeContext } from "../../ts/types";
 import { REQUIRED_VALIDATE_INPUT_TEXT, BAD_NEWS_API_RESULT } from "../../ts/constants";
 import getNews from "../../ts/modules/NewsApi";
-import { INewsResponse, IFormProps } from "../../ts/types";
+import { INewsResponse } from "../../ts/types";
+import { addNews } from "../../actions/actionCreator";
+import store from "../../store";
 
 export const FormContext = React.createContext<IHomeContext>({
   formProps: {
@@ -20,7 +23,7 @@ export const FormContext = React.createContext<IHomeContext>({
   }
 });
 
-class Home extends Component {
+class Home extends Component<{}, {}> {
   state = {
     value: "",
     error: "",
@@ -43,7 +46,6 @@ class Home extends Component {
         getNews<INewsResponse>(value)
           .then(resp => {
             console.log(resp);
-
           })
           .catch(() => console.log(BAD_NEWS_API_RESULT))
           .finally(() => this.setState({ isLoading: false }));
