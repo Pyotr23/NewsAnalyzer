@@ -6,7 +6,6 @@ import { Dispatch } from "react";
 const fetchNews = (question: string) => async (dispatch: Dispatch<NewsActionTypes>) => {
     dispatch(fetchNewsPending());
     try {
-      console.log("here");
       const res = await getNews<INewsResponse>(question);
       if (res.status !== "ok")
         throw (res.status);

@@ -1,0 +1,7 @@
+@import url(../../fonts/fonts.css);
+
+.bad-request {
+  background: #F5F6F7;
+  padding: 40px 0;
+  font-family: 'Roboto', Arial, sans-serif;
+}

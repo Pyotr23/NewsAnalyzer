@@ -7,9 +7,10 @@ import Cards from "../../components/cards/cards";
 import Author from "../../components/author/author";
 import Loading from "../../components/loading/loading";
 import NoResult from "../../components/no-result/no-result";
+import BadRequest from "../../components/bad-request/bad-request";
 
 import { NewsActionTypes, INews } from "../../ts/types";
-import { REQUIRED_VALIDATE_INPUT_TEXT, BAD_NEWS_API_RESULT } from "../../ts/constants";
+import { REQUIRED_VALIDATE_INPUT_TEXT } from "../../ts/constants";
 import fetchNews from "../../ts/fetchers/fetchNews";
 import { RootState } from "../../ts/reducers/index";
 import { FormContext } from "../../ts/contexts";
@@ -19,11 +20,18 @@ type HomeProps = {
   fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | INews[]>,
   pending: boolean,
   news: INews[],
-  noValidateText: string
+  error: string,
+}
+
+type HomeState = {
+  value: string,
+  noValidateText: string,
+  inputStyle: string,
+  isValid?: boolean
 }
 
 
-class Home extends Component<HomeProps, {}> {
+class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps){
     super(props);
 
@@ -32,7 +40,7 @@ class Home extends Component<HomeProps, {}> {
   state = {
     value: "",
     noValidateText: "",
-    inputStyle: "form__input",
+    inputStyle: "form__input"
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,12 +87,13 @@ class Home extends Component<HomeProps, {}> {
         noValidateText: noValidateText
       }
     }
-    const { pending } = this.props;
+    const { pending, error, news } = this.props;
+    const isNewsFound = news.length !== 0;
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
-      {pending && <Loading />}
-      <NoResult />
-      <Cards />
+      { pending && <Loading />}
+      { error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
+      { !pending && isNewsFound ? <Cards /> : <NoResult />}
       <Author />
     </FormContext.Provider>
   }
@@ -98,13 +107,6 @@ const mapStateToProps = (state: RootState) => {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => {
-  return bindActionCreators(
-    {
-      fetchNews
-    },
-    dispatch
-  );
-};
+const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => bindActionCreators({ fetchNews }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home);
