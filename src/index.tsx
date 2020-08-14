@@ -8,22 +8,22 @@ import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
 import Home from "./containers/home/home";
 import About from "./components/about/about";
 import Analytics from "./components/analytics/analytics";
-import store from "./store";
+import store from "./ts/store";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-    <BrowserRouter>
-      <App>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/analytics" component={Analytics} />
-        </Switch>
-      </App>
-    </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/analytics" component={Analytics} />
+          </Switch>
+        </App>
+      </BrowserRouter>
+        </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

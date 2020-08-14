@@ -1,4 +1,4 @@
-import { ADD_ARTICLES } from "./constants";
+import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS } from "./constants";
 
 export interface INewsResponse {
   status: string,
@@ -22,26 +22,37 @@ interface ISource {
   name: string
 }
 
-
-export interface IGetArticlesAction {
-  type: typeof ADD_ARTICLES;
-  payload: INews[]
-}
-
-
 export interface IFormProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
   inputStyle: string,
-  errorText: string,
+  noValidateText: string,
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
 }
-
 
 export interface IHomeContext {
   formProps: IFormProps
 }
 
-
-export interface ILoadingProps {
-  isVisible: boolean;
+export interface INewsState {
+  pending: boolean,
+  news: INews[],
+  error: string
 }
+
+interface IFetchNewsPending {
+  type: typeof FETCH_NEWS_PENDING
+}
+
+interface IFetchNewsSuccess {
+  type: typeof FETCH_NEWS_SUCCESS,
+  payload: INews[]
+}
+
+interface IFetchNewsError {
+  type: typeof FETCH_NEWS_ERROR,
+  payload: {
+    error: string
+  }
+}
+
+export type NewsActionTypes = IFetchNewsError | IFetchNewsSuccess | IFetchNewsPending;

@@ -9,5 +9,5 @@
   flex-direction: column;
   text-align: center;
   font-family: 'Roboto', Arial, sans-serif;
-  display: none;
+  display: flex;
 }

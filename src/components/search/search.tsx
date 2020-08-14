@@ -1,7 +1,7 @@
 import React from "react";
 import "./search.css";
 import Form from "../form/form";
-import { FormContext } from "../../containers/home/home";
+import { FormContext } from "../../ts/contexts";
 import { IHomeContext } from "../../ts/types";
 
 const Search: React.FC = (): React.ReactElement => (
@@ -12,7 +12,7 @@ const Search: React.FC = (): React.ReactElement => (
        <p className="search__text">
          Введите в поиске любую тему и узнайте, насколько популярной она была в новостях за прошедшую неделю.
        </p>
-       <Form onChange={ FormProps.onChange } onSubmit={ FormProps.onSubmit } inputStyle={ FormProps.inputStyle } errorText={ FormProps.errorText }/>
+       <Form onChange={ FormProps.onChange } onSubmit={ FormProps.onSubmit } inputStyle={ FormProps.inputStyle } noValidateText={ FormProps.noValidateText }/>
      </main>
     )}
   </FormContext.Consumer>

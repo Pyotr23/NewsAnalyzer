@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { connect } from "react-redux";
+import { Dispatch, bindActionCreators } from "redux";
 
 import HeaderWrapper from "../../components/header-wrapper/header-wrapper";
 import Cards from "../../components/cards/cards";
@@ -7,28 +8,31 @@ import Author from "../../components/author/author";
 import Loading from "../../components/loading/loading";
 import NoResult from "../../components/no-result/no-result";
 
-import { IHomeContext } from "../../ts/types";
+import { NewsActionTypes, INews } from "../../ts/types";
 import { REQUIRED_VALIDATE_INPUT_TEXT, BAD_NEWS_API_RESULT } from "../../ts/constants";
-import getNews from "../../ts/modules/NewsApi";
-import { INewsResponse } from "../../ts/types";
-import { addNews } from "../../actions/actionCreator";
-import store from "../../store";
+import fetchNews from "../../ts/fetchers/fetchNews";
+import { RootState } from "../../ts/reducers/index";
+import { FormContext } from "../../ts/contexts";
 
-export const FormContext = React.createContext<IHomeContext>({
-  formProps: {
-    onChange: () => {},
-    onSubmit: () => {},
-    inputStyle: "",
-    errorText: "",
+
+type HomeProps = {
+  fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | INews[]>,
+  pending: boolean,
+  news: INews[],
+  noValidateText: string
+}
+
+
+class Home extends Component<HomeProps, {}> {
+  constructor(props: HomeProps){
+    super(props);
+
   }
-});
 
-class Home extends Component<{}, {}> {
   state = {
     value: "",
-    error: "",
+    noValidateText: "",
     inputStyle: "form__input",
-    isLoading: false
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,21 +46,15 @@ class Home extends Component<{}, {}> {
     let { value } = this.state;
     this._refreshFormState(value);
     if (value.length !== 0){
-      this.setState({ isLoading: true }, () => {
-        getNews<INewsResponse>(value)
-          .then(resp => {
-            console.log(resp);
-          })
-          .catch(() => console.log(BAD_NEWS_API_RESULT))
-          .finally(() => this.setState({ isLoading: false }));
-      });
+      const { fetchNews } = this.props;
+      fetchNews(value);
     }
   }
 
   private _refreshFormState(value: string): void {
-    let { error, inputStyle } = this.state;
+    let { noValidateText, inputStyle } = this.state;
     const isValid = value.length !== 0;
-    error = isValid
+    noValidateText = isValid
       ? ""
       : REQUIRED_VALIDATE_INPUT_TEXT;
     inputStyle = isValid
@@ -64,7 +62,7 @@ class Home extends Component<{}, {}> {
       : "form__input form__input_error";
     this.setState({
       value,
-      error,
+      noValidateText,
       isValid,
       inputStyle
     });
@@ -72,18 +70,19 @@ class Home extends Component<{}, {}> {
 
 
   render() {
-    const { inputStyle, error, isLoading } = this.state;
+    const { inputStyle, noValidateText } = this.state;
     const context = {
       formProps: {
         onChange: this.handleInputChange,
         onSubmit: this.handleSubmit,
         inputStyle: inputStyle,
-        errorText: error
+        noValidateText: noValidateText
       }
     }
+    const { pending } = this.props;
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
-      <Loading isVisible = { isLoading }/>
+      {pending && <Loading />}
       <NoResult />
       <Cards />
       <Author />
@@ -91,4 +90,21 @@ class Home extends Component<{}, {}> {
   }
 }
 
-export default Home;
+const mapStateToProps = (state: RootState) => {
+  return {
+    pending: state.news.pending,
+    news: state.news.news,
+    error: state.news.error
+  }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => {
+  return bindActionCreators(
+    {
+      fetchNews
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (Home);
