@@ -7,3 +7,5 @@ export const BAD_NEWS_API_RESULT = "Во время запроса произо�
 export const FETCH_NEWS_PENDING = "FETCH_NEWS_PENDING";
 export const FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS";
 export const FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR";
+
+export const RUSSIAN_MONTH_NAMES = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];

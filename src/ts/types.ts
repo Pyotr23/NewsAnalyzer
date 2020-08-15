@@ -3,7 +3,7 @@ import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS } from "./con
 export interface ICard {
   url: string,
   imageSource: string,
-  contentDate: string,
+  contentDate: Date,
   title: string,
   text: string,
   author: string

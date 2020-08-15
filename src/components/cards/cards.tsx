@@ -18,7 +18,7 @@ const Cards = ({ news }: CardsProps) => {
       </div>
       <ul className="cards__list">
         { news.slice(0, 3).map(({ source, title, description, url, urlToImage, publishedAt }, index) => (
-          <Card key={ index } url={ url } imageSource={ urlToImage } contentDate={ publishedAt.toString() } title={ title } text={ description } author={ source?.name }/>
+          <Card key={ index } url={ url } imageSource={ urlToImage } contentDate={ publishedAt } title={ title } text={ description } author={ source?.name }/>
         ))}
       </ul>
       <Button text="Показать ещё" modificatorClassName="button_place_cards"/>
