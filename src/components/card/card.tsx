@@ -7,13 +7,15 @@ import Ref from "../ref/ref";
 const Card = ({ url, imageSource, contentDate, title, text, author}: ICard) => (
   <li className="card">
     <Ref href={url} modClassNames="ref_place_card">
-      <img className="card__image" src={imageSource} alt="заглавная картинка"/>
-      <div className="card__text-content">
-        <p className="card__text-date">{contentDate}</p>
-        <h3 className="card__title">{title}</h3>
-        <p className="card__text">{text}</p>
-        <p className="card__source">{author}</p>
+      <div className="card__container">
+        <img className="card__image" src={imageSource} alt="заглавная картинка"/>
+        <div className="card__text-content">
+          <p className="card__text-date">{contentDate}</p>
+          <h3 className="card__title">{title}</h3>
+          <p className="card__text">{text}</p>
+        </div>
       </div>
+      <p className="card__source">{author}</p>
     </Ref>
   </li>
 )

@@ -11,4 +11,11 @@
   overflow: hidden;
   background-color: white;
   position: relative;
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px){
+  .card {
+    padding-bottom: 24px;
+  }
 }
