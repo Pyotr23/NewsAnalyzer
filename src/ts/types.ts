@@ -1,19 +1,28 @@
 import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS } from "./constants";
 
+export interface ICard {
+  url: string,
+  imageSource: string,
+  contentDate: string,
+  title: string,
+  text: string,
+  author: string
+}
+
 export interface INewsResponse {
   status: string,
   totalResults: number,
-  articles: INews[]
+  articles: IArticles[]
 }
 
-export interface INews {
-  source?: ISource,
+export interface IArticles {
+  source: ISource,
   author: string,
   title: string,
   description: string,
   url: string,
   urlToImage: string,
-  publishedAt?: Date,
+  publishedAt: Date,
   content: string
 }
 
@@ -33,19 +42,13 @@ export interface IHomeContext {
   formProps: IFormProps
 }
 
-export interface INewsState {
-  pending: boolean,
-  news: INews[],
-  error: string
-}
-
 interface IFetchNewsPending {
   type: typeof FETCH_NEWS_PENDING
 }
 
 interface IFetchNewsSuccess {
   type: typeof FETCH_NEWS_SUCCESS,
-  payload: INews[]
+  payload: IArticles[]
 }
 
 interface IFetchNewsError {

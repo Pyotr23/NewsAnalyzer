@@ -10,7 +10,6 @@ const fetchNews = (question: string) => async (dispatch: Dispatch<NewsActionType
       if (res.status !== "ok")
         throw (res.status);
       dispatch(fetchNewsSuccess(res.articles));
-      console.log(res.articles);
       return res.articles;
     }
     catch (error) {

@@ -17,7 +17,7 @@ const configureStore = (preloadedState: any) => (
     rootReducer,
     preloadedState,
     composeEnhancers(
-      applyMiddleware(thunk)
+      applyMiddleware(thunk, save({ namespace: "home" }))
     ),
   )
 )

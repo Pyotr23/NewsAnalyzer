@@ -1,12 +1,19 @@
 import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, BAD_NEWS_API_RESULT } from "../constants";
 import { load } from "redux-localstorage-simple";
-import { INews, INewsState, NewsActionTypes } from "../types";
+import { IArticles, NewsActionTypes } from "../types";
+
+export interface INewsState {
+  pending: boolean,
+  articles: IArticles[],
+  error: string
+}
 
 const savedNews: any = load({ namespace: "home" });
 
 const initialState: INewsState = {
   pending: false,
-  news: (savedNews && savedNews.news) ? savedNews.news : [],
+  // articles: [],
+  articles: (savedNews && savedNews.news) ? savedNews.news.articles : [],
   error: ""
 }
 
@@ -21,7 +28,7 @@ const news = (state = initialState, action: NewsActionTypes): INewsState => {
       return {
         ...state,
         pending: false,
-        news: action.payload
+        articles: action.payload
       }
     case FETCH_NEWS_ERROR:
       return {

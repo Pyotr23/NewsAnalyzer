@@ -9,7 +9,7 @@ import Loading from "../../components/loading/loading";
 import NoResult from "../../components/no-result/no-result";
 import BadRequest from "../../components/bad-request/bad-request";
 
-import { NewsActionTypes, INews } from "../../ts/types";
+import { NewsActionTypes, IArticles } from "../../ts/types";
 import { REQUIRED_VALIDATE_INPUT_TEXT } from "../../ts/constants";
 import fetchNews from "../../ts/fetchers/fetchNews";
 import { RootState } from "../../ts/reducers/index";
@@ -17,9 +17,9 @@ import { FormContext } from "../../ts/contexts";
 
 
 type HomeProps = {
-  fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | INews[]>,
+  fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | IArticles[]>,
   pending: boolean,
-  news: INews[],
+  articles: IArticles[],
   error: string,
 }
 
@@ -87,13 +87,13 @@ class Home extends Component<HomeProps, HomeState> {
         noValidateText: noValidateText
       }
     }
-    const { pending, error, news } = this.props;
-    const isNewsFound = news.length !== 0;
+    const { pending, error, articles } = this.props;
+    const isNewsFound = articles.length !== 0;
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
       { pending && <Loading />}
       { error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
-      { !pending && isNewsFound ? <Cards /> : <NoResult />}
+      { !pending && isNewsFound ? <Cards news={ articles }/> : <NoResult />}
       <Author />
     </FormContext.Provider>
   }
@@ -102,7 +102,7 @@ class Home extends Component<HomeProps, HomeState> {
 const mapStateToProps = (state: RootState) => {
   return {
     pending: state.news.pending,
-    news: state.news.news,
+    articles: state.news.articles,
     error: state.news.error
   }
 }

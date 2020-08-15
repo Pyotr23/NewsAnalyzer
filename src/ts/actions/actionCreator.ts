@@ -1,18 +1,15 @@
 import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, BAD_NEWS_API_RESULT } from "../constants";
-import { NewsActionTypes, INews, INewsResponse } from "../types";
-import { Action, ActionCreator, Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
-import getNews from "../modules/NewsApi";
+import { NewsActionTypes, IArticles } from "../types";
 
 export const fetchNewsPending = (): NewsActionTypes => ({
   type: FETCH_NEWS_PENDING
 })
 
-export const fetchNewsSuccess = (news: INews[]): NewsActionTypes => ({
+export const fetchNewsSuccess = (news: IArticles[]): NewsActionTypes => ({
   type: FETCH_NEWS_SUCCESS,
-  payload: {
+  payload: [
     ...news
-  }
+  ]
 })
 
 export const fetchNewsError = (error: string): NewsActionTypes => ({
