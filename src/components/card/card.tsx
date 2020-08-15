@@ -6,7 +6,7 @@ import Ref from "../ref/ref";
 
 const Card = ({ url, imageSource, contentDate, title, text, author}: ICard) => (
   <li className="card">
-    <Ref href={url}>
+    <Ref href={url} modClassNames="ref_place_card">
       <img className="card__image" src={imageSource} alt="заглавная картинка"/>
       <div className="card__text-content">
         <p className="card__text-date">{contentDate}</p>
