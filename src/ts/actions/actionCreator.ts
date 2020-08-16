@@ -1,4 +1,4 @@
-import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, BAD_NEWS_API_RESULT } from "../constants";
+import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEWS } from "../constants";
 import { NewsActionTypes, IArticles } from "../types";
 
 export const fetchNewsPending = (): NewsActionTypes => ({
@@ -17,4 +17,9 @@ export const fetchNewsError = (error: string): NewsActionTypes => ({
   payload: {
     error: error
   }
+})
+
+export const showMore = (showedNewsCount: number): NewsActionTypes => ({
+  type: SHOW_MORE_NEWS,
+  payload: showedNewsCount
 })

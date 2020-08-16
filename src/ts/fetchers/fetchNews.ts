@@ -1,9 +1,9 @@
 import { NewsActionTypes, INewsResponse } from "../types";
-import { fetchNewsError, fetchNewsPending, fetchNewsSuccess } from "../actions/actionCreator";
+import { fetchNewsError, fetchNewsPending, fetchNewsSuccess, showMore } from "../actions/actionCreator";
 import getNews from "../modules/NewsApi";
 import { Dispatch } from "react";
 
-const fetchNews = (question: string) => async (dispatch: Dispatch<NewsActionTypes>) => {
+export const fetchNews = (question: string) => async (dispatch: Dispatch<NewsActionTypes>) => {
     dispatch(fetchNewsPending());
     try {
       const res = await getNews<INewsResponse>(question);
@@ -17,5 +17,7 @@ const fetchNews = (question: string) => async (dispatch: Dispatch<NewsActionType
     }
   }
 
-
-export default fetchNews;
+// export const showMoreNews = (count: number) => (dispatch: Dispatch<NewsActionTypes>) => {
+//   console.log(count);
+//   dispatch(showMore(count));
+// }

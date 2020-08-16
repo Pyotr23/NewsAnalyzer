@@ -1,4 +1,4 @@
-import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS } from "./constants";
+import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOWED_NEWS_PACK_SIZE, SHOW_MORE_NEWS } from "./constants";
 
 export interface ICard {
   url: string,
@@ -58,4 +58,9 @@ interface IFetchNewsError {
   }
 }
 
-export type NewsActionTypes = IFetchNewsError | IFetchNewsSuccess | IFetchNewsPending;
+interface IShowMoreNews {
+  type: typeof SHOW_MORE_NEWS,
+  payload: number
+}
+
+export type NewsActionTypes = IFetchNewsError | IFetchNewsSuccess | IFetchNewsPending | IShowMoreNews;

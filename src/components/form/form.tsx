@@ -9,7 +9,7 @@ const Form = ({ noValidateText, onChange, onSubmit, inputStyle }: IFormProps) =>
       <input className={ inputStyle } type="text" placeholder="Программирование" onChange={ onChange }></input>
         {noValidateText && <p className="form__input-error">{noValidateText}</p>}
     </div>
-    <Button text="Искать" modificatorClassName="button_active_blue"/>
+    <Button text="Искать" modificatorClassName="button_active_blue" type="submit"/>
   </form>
 )
 

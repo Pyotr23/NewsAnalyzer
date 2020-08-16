@@ -10,17 +10,20 @@ import NoResult from "../../components/no-result/no-result";
 import BadRequest from "../../components/bad-request/bad-request";
 
 import { NewsActionTypes, IArticles } from "../../ts/types";
-import { REQUIRED_VALIDATE_INPUT_TEXT } from "../../ts/constants";
-import fetchNews from "../../ts/fetchers/fetchNews";
+import { REQUIRED_VALIDATE_INPUT_TEXT, SHOWED_NEWS_PACK_SIZE } from "../../ts/constants";
+import { fetchNews } from "../../ts/fetchers/fetchNews";
 import { RootState } from "../../ts/reducers/index";
 import { FormContext } from "../../ts/contexts";
+import { showMore } from "../../ts/actions/actionCreator";
 
 
 type HomeProps = {
   fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | IArticles[]>,
+  showMore: (count: number) => NewsActionTypes,
   pending: boolean,
   articles: IArticles[],
   error: string,
+  showedNewsCount: number
 }
 
 type HomeState = {
@@ -40,10 +43,11 @@ class Home extends Component<HomeProps, HomeState> {
   state = {
     value: "",
     noValidateText: "",
-    inputStyle: "form__input"
+    inputStyle: "form__input",
+    showedNewsCount: this.props.showedNewsCount
   }
 
-  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     const { value } = e.target;
     this._refreshFormState(value);
@@ -59,7 +63,7 @@ class Home extends Component<HomeProps, HomeState> {
     }
   }
 
-  private _refreshFormState(value: string): void {
+  private _refreshFormState(value: string) {
     let { noValidateText, inputStyle } = this.state;
     const isValid = value.length !== 0;
     noValidateText = isValid
@@ -76,6 +80,11 @@ class Home extends Component<HomeProps, HomeState> {
     });
   }
 
+  showMore = () => {
+    const { showMore, showedNewsCount } = this.props;
+    console.log(typeof showMore);
+    showMore(showedNewsCount + SHOWED_NEWS_PACK_SIZE);
+  }
 
   render() {
     const { inputStyle, noValidateText } = this.state;
@@ -87,13 +96,13 @@ class Home extends Component<HomeProps, HomeState> {
         noValidateText: noValidateText
       }
     }
-    const { pending, error, articles } = this.props;
+    const { pending, error, articles, showedNewsCount } = this.props;
     const isNewsFound = articles.length !== 0;
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
       { pending && <Loading />}
       { error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
-      { !pending && isNewsFound ? <Cards news={ articles }/> : <NoResult />}
+      { !pending && isNewsFound ? <Cards news={ articles } showedCount={ showedNewsCount } showMore={ this.showMore }/> : <NoResult />}
       <Author />
     </FormContext.Provider>
   }
@@ -103,10 +112,16 @@ const mapStateToProps = (state: RootState) => {
   return {
     pending: state.news.pending,
     articles: state.news.articles,
-    error: state.news.error
+    error: state.news.error,
+    showedNewsCount: state.news.showedNewsCount
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => bindActionCreators({ fetchNews }, dispatch);
+// const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => bindActionCreators({ fetchNews, showMore: showMoreNews }, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => ({
+  fetchNews: bindActionCreators(fetchNews, dispatch),
+  showMore: bindActionCreators(showMore, dispatch)
+});
+
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home);
