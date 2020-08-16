@@ -81,9 +81,9 @@ class Home extends Component<HomeProps, HomeState> {
   }
 
   showMore = () => {
-    const { showMore, showedNewsCount } = this.props;
-    console.log(typeof showMore);
-    showMore(showedNewsCount + SHOWED_NEWS_PACK_SIZE);
+    const { showMore, showedNewsCount, articles } = this.props;
+    const newCount = showedNewsCount + SHOWED_NEWS_PACK_SIZE;
+    showMore(newCount > articles.length ? articles.length : newCount);
   }
 
   render() {
@@ -101,7 +101,7 @@ class Home extends Component<HomeProps, HomeState> {
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
       { pending && <Loading />}
-      { error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
+      { !pending && error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
       { !pending && isNewsFound ? <Cards news={ articles } showedCount={ showedNewsCount } showMore={ this.showMore }/> : <NoResult />}
       <Author />
     </FormContext.Provider>
@@ -117,7 +117,6 @@ const mapStateToProps = (state: RootState) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => bindActionCreators({ fetchNews, showMore: showMoreNews }, dispatch);
 const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => ({
   fetchNews: bindActionCreators(fetchNews, dispatch),
   showMore: bindActionCreators(showMore, dispatch)

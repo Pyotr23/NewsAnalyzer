@@ -39,7 +39,6 @@ const news = (state = initialState, action: NewsActionTypes): INewsState => {
         error: BAD_NEWS_API_RESULT
       }
     case SHOW_MORE_NEWS:
-      console.log(action.payload);
       return {
         ...state,
         showedNewsCount: action.payload

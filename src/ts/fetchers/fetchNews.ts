@@ -9,6 +9,7 @@ export const fetchNews = (question: string) => async (dispatch: Dispatch<NewsAct
       const res = await getNews<INewsResponse>(question);
       if (res.status !== "ok")
         throw (res.status);
+      console.log(res.totalResults);
       dispatch(fetchNewsSuccess(res.articles));
       return res.articles;
     }

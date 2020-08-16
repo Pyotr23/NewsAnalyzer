@@ -5,7 +5,6 @@ import Ref from "../ref/ref";
 import Card from "../card/card";
 import Button from "../button/button";
 import { IArticles } from "../../ts/types";
-import { SHOWED_NEWS_PACK_SIZE } from "../../ts/constants";
 
 type CardsProps = {
   news: IArticles[],
@@ -14,6 +13,9 @@ type CardsProps = {
 }
 
 const Cards = ({ news, showedCount, showMore }: CardsProps) => {
+  console.log(`${news.length} - ${showedCount}`)
+  const hasMoreCards = news.length > showedCount;
+  const buttonModificator = hasMoreCards ? "button_place_cards" : "button_place_cards button_disabled";
   return <section className="cards">
       <div className="cards__header">
         <Title title="Результаты поиска" modificatorClassName="title_place_cards"/>
@@ -24,7 +26,7 @@ const Cards = ({ news, showedCount, showMore }: CardsProps) => {
           <Card key={ index } url={ url } imageSource={ urlToImage } contentDate={ publishedAt } title={ title } text={ description } author={ source?.name }/>
         ))}
       </ul>
-      <Button text="Показать ещё" modificatorClassName="button_place_cards" handleClick={ showMore }/>
+      <Button text="Показать ещё" modificatorClassName={ buttonModificator } handleClick={ showMore } disabled={ hasMoreCards ? undefined : true }/>
     </section>
 }
 
