@@ -2,6 +2,7 @@ import { NewsActionTypes, INewsResponse } from "../types";
 import { fetchNewsError, fetchNewsPending, fetchNewsSuccess, showMore } from "../actions/actionCreator";
 import getNews from "../modules/NewsApi";
 import { Dispatch } from "react";
+import { GetNewShowedArticlesCount } from "../helpers";
 
 export const fetchNews = (question: string) => async (dispatch: Dispatch<NewsActionTypes>) => {
     dispatch(fetchNewsPending());
@@ -9,8 +10,8 @@ export const fetchNews = (question: string) => async (dispatch: Dispatch<NewsAct
       const res = await getNews<INewsResponse>(question);
       if (res.status !== "ok")
         throw (res.status);
-      console.log(res.totalResults);
       dispatch(fetchNewsSuccess(res.articles));
+      dispatch(showMore(GetNewShowedArticlesCount(res.articles, 0)));
       return res.articles;
     }
     catch (error) {

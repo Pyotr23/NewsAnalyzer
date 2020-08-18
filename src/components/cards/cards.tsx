@@ -13,7 +13,6 @@ type CardsProps = {
 }
 
 const Cards = ({ news, showedCount, showMore }: CardsProps) => {
-  console.log(`${news.length} - ${showedCount}`)
   const hasMoreCards = news.length > showedCount;
   const buttonModificator = hasMoreCards ? "button_place_cards" : "button_place_cards button_disabled";
   return <section className="cards">

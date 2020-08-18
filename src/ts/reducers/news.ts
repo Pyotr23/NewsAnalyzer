@@ -1,5 +1,4 @@
-import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, BAD_NEWS_API_RESULT, SHOW_MORE_NEWS } from "../constants";
-import { load } from "redux-localstorage-simple";
+import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, BAD_NEWS_API_RESULT, SHOW_MORE_NEWS, START_SHOWED_NEWS_COUNT } from "../constants";
 import { IArticles, NewsActionTypes } from "../types";
 
 export interface INewsState {
@@ -9,13 +8,11 @@ export interface INewsState {
   showedNewsCount: number
 }
 
-const savedNews: any = load({ namespace: "home" });
-
 const initialState: INewsState = {
   pending: false,
-  articles: (savedNews && savedNews.news && savedNews.news.articles) ? savedNews.news.articles : [],
+  articles: [],
   error: "",
-  showedNewsCount: (savedNews && savedNews.news && savedNews.news.showedNewsCount) ? savedNews.news.showedNewsCount : 3,
+  showedNewsCount: START_SHOWED_NEWS_COUNT,
 }
 
 const news = (state = initialState, action: NewsActionTypes): INewsState => {

@@ -1,14 +1,5 @@
 import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOWED_NEWS_PACK_SIZE, SHOW_MORE_NEWS } from "./constants";
 
-export interface ICard {
-  url: string,
-  imageSource: string,
-  contentDate: Date,
-  title: string,
-  text: string,
-  author: string
-}
-
 export interface INewsResponse {
   status: string,
   totalResults: number,

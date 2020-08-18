@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Dispatch, bindActionCreators } from "redux";
 
@@ -10,20 +10,18 @@ import NoResult from "../../components/no-result/no-result";
 import BadRequest from "../../components/bad-request/bad-request";
 
 import { NewsActionTypes, IArticles } from "../../ts/types";
-import { REQUIRED_VALIDATE_INPUT_TEXT, SHOWED_NEWS_PACK_SIZE } from "../../ts/constants";
+import { REQUIRED_VALIDATE_INPUT_TEXT, START_SHOWED_NEWS_COUNT } from "../../ts/constants";
 import { fetchNews } from "../../ts/fetchers/fetchNews";
 import { RootState } from "../../ts/reducers/index";
 import { FormContext } from "../../ts/contexts";
 import { showMore } from "../../ts/actions/actionCreator";
+import { INewsState } from "../../ts/reducers/news";
+import { GetNewShowedArticlesCount } from "../../ts/helpers";
 
 
-type HomeProps = {
+interface HomeProps {
   fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | IArticles[]>,
   showMore: (count: number) => NewsActionTypes,
-  pending: boolean,
-  articles: IArticles[],
-  error: string,
-  showedNewsCount: number
 }
 
 type HomeState = {
@@ -34,8 +32,8 @@ type HomeState = {
 }
 
 
-class Home extends Component<HomeProps, HomeState> {
-  constructor(props: HomeProps){
+class Home extends Component<HomeProps & INewsState, HomeState> {
+  constructor(props: HomeProps & INewsState){
     super(props);
 
   }
@@ -82,8 +80,7 @@ class Home extends Component<HomeProps, HomeState> {
 
   showMore = () => {
     const { showMore, showedNewsCount, articles } = this.props;
-    const newCount = showedNewsCount + SHOWED_NEWS_PACK_SIZE;
-    showMore(newCount > articles.length ? articles.length : newCount);
+    showMore(GetNewShowedArticlesCount(articles, showedNewsCount));
   }
 
   render() {
@@ -97,12 +94,13 @@ class Home extends Component<HomeProps, HomeState> {
       }
     }
     const { pending, error, articles, showedNewsCount } = this.props;
-    const isNewsFound = articles.length !== 0;
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
       { pending && <Loading />}
       { !pending && error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
-      { !pending && isNewsFound ? <Cards news={ articles } showedCount={ showedNewsCount } showMore={ this.showMore }/> : <NoResult />}
+      { !pending && showedNewsCount > 0
+        ? <Cards news={ articles } showedCount={ showedNewsCount } showMore={ this.showMore }/>
+        : showedNewsCount != START_SHOWED_NEWS_COUNT && <NoResult />}
       <Author />
     </FormContext.Provider>
   }

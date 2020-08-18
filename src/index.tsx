@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import Home from "./containers/home/home";
 import About from "./components/about/about";
 import Analytics from "./components/analytics/analytics";
@@ -13,7 +13,7 @@ import store from "./ts/store";
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <BrowserRouter>
+      <HashRouter>
         <App>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -21,7 +21,7 @@ ReactDOM.render(
             <Route path="/analytics" component={Analytics} />
           </Switch>
         </App>
-      </BrowserRouter>
+      </HashRouter>
         </React.StrictMode>
   </Provider>,
   document.getElementById('root')
