@@ -5,14 +5,16 @@ export interface INewsState {
   pending: boolean,
   articles: IArticles[],
   error: string,
-  showedNewsCount: number
+  currentShowedCount: number,
+  searchText: string
 }
 
 const initialState: INewsState = {
   pending: false,
   articles: [],
   error: "",
-  showedNewsCount: START_SHOWED_NEWS_COUNT,
+  currentShowedCount: START_SHOWED_NEWS_COUNT,
+  searchText: ""
 }
 
 const news = (state = initialState, action: NewsActionTypes): INewsState => {
@@ -20,14 +22,14 @@ const news = (state = initialState, action: NewsActionTypes): INewsState => {
     case FETCH_NEWS_PENDING:
       return {
         ...state,
-        pending: true
+        pending: true,
       }
     case FETCH_NEWS_SUCCESS:
       return {
         ...state,
         pending: false,
-        articles: action.payload,
-        showedNewsCount: 3
+        articles: action.payload.news,
+        searchText: action.payload.searchText
       }
     case FETCH_NEWS_ERROR:
       return {
@@ -38,7 +40,7 @@ const news = (state = initialState, action: NewsActionTypes): INewsState => {
     case SHOW_MORE_NEWS:
       return {
         ...state,
-        showedNewsCount: action.payload
+        currentShowedCount: action.payload.currentShowedCount
       }
     default:
       return state;

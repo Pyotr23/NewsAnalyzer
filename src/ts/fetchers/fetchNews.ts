@@ -10,7 +10,8 @@ export const fetchNews = (question: string) => async (dispatch: Dispatch<NewsAct
       const res = await getNews<INewsResponse>(question);
       if (res.status !== "ok")
         throw (res.status);
-      dispatch(fetchNewsSuccess(res.articles));
+      dispatch(fetchNewsSuccess(res.articles, question));
+      console.log(res);
       dispatch(showMore(GetNewShowedArticlesCount(res.articles, 0)));
       return res.articles;
     }
@@ -18,8 +19,3 @@ export const fetchNews = (question: string) => async (dispatch: Dispatch<NewsAct
       return dispatch(fetchNewsError(error));
     }
   }
-
-// export const showMoreNews = (count: number) => (dispatch: Dispatch<NewsActionTypes>) => {
-//   console.log(count);
-//   dispatch(showMore(count));
-// }

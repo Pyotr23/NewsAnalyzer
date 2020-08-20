@@ -1,5 +1,5 @@
-export const API_KEY: string = "36d016b9c22e4779bda6ca662fc87eea";
-export const PAGE_SIZE: string = "100";
+export const API_KEY = "36d016b9c22e4779bda6ca662fc87eea";
+export const PAGE_SIZE = "100";
 export const DAYS_AGO_COUNT = 6;
 
 export const SHOWED_NEWS_PACK_SIZE = 3;
@@ -12,5 +12,6 @@ export const FETCH_NEWS_PENDING = "FETCH_NEWS_PENDING";
 export const FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS";
 export const FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR";
 export const SHOW_MORE_NEWS = "SHOW_MORE_NEWS";
+export const WRITE_SEARCH_TEXT = "WRITE_SEARCH_TEXT";
 
 export const RUSSIAN_MONTH_NAMES = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];

@@ -35,14 +35,12 @@ type HomeState = {
 class Home extends Component<HomeProps & INewsState, HomeState> {
   constructor(props: HomeProps & INewsState){
     super(props);
-
   }
 
   state = {
     value: "",
     noValidateText: "",
     inputStyle: "form__input",
-    showedNewsCount: this.props.showedNewsCount
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -79,8 +77,8 @@ class Home extends Component<HomeProps & INewsState, HomeState> {
   }
 
   showMore = () => {
-    const { showMore, showedNewsCount, articles } = this.props;
-    showMore(GetNewShowedArticlesCount(articles, showedNewsCount));
+    const { showMore, currentShowedCount, articles } = this.props;
+    showMore(GetNewShowedArticlesCount(articles, currentShowedCount));
   }
 
   render() {
@@ -93,14 +91,14 @@ class Home extends Component<HomeProps & INewsState, HomeState> {
         noValidateText: noValidateText
       }
     }
-    const { pending, error, articles, showedNewsCount } = this.props;
+    const { pending, error, articles, currentShowedCount } = this.props;
     return <FormContext.Provider value = { context }>
       <HeaderWrapper />
       { pending && <Loading />}
       { !pending && error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
-      { !pending && showedNewsCount > 0
-        ? <Cards news={ articles } showedCount={ showedNewsCount } showMore={ this.showMore }/>
-        : showedNewsCount != START_SHOWED_NEWS_COUNT && <NoResult />}
+      { !pending && currentShowedCount > 0
+        ? <Cards news={ articles } showedCount={ currentShowedCount } showMore={ this.showMore }/>
+        : currentShowedCount != START_SHOWED_NEWS_COUNT && <NoResult />}
       <Author />
     </FormContext.Provider>
   }
@@ -111,7 +109,8 @@ const mapStateToProps = (state: RootState) => {
     pending: state.news.pending,
     articles: state.news.articles,
     error: state.news.error,
-    showedNewsCount: state.news.showedNewsCount
+    currentShowedCount: state.news.currentShowedCount,
+    searchText: state.news.searchText,
   }
 }
 
@@ -119,6 +118,5 @@ const mapDispatchToProps = (dispatch: Dispatch<NewsActionTypes>) => ({
   fetchNews: bindActionCreators(fetchNews, dispatch),
   showMore: bindActionCreators(showMore, dispatch)
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home);

@@ -34,12 +34,18 @@ export interface IHomeContext {
 }
 
 interface IFetchNewsPending {
-  type: typeof FETCH_NEWS_PENDING
+  type: typeof FETCH_NEWS_PENDING,
+  // payload: {
+  //   searchText: string
+  // }
 }
 
 interface IFetchNewsSuccess {
   type: typeof FETCH_NEWS_SUCCESS,
-  payload: IArticles[]
+  payload: {
+    news: IArticles[],
+    searchText: string
+  }
 }
 
 interface IFetchNewsError {
@@ -51,7 +57,9 @@ interface IFetchNewsError {
 
 interface IShowMoreNews {
   type: typeof SHOW_MORE_NEWS,
-  payload: number
+  payload: {
+    currentShowedCount: number
+  }
 }
 
-export type NewsActionTypes = IFetchNewsError | IFetchNewsSuccess | IFetchNewsPending | IShowMoreNews;
+export type NewsActionTypes = IFetchNewsPending | IFetchNewsError | IFetchNewsSuccess | IShowMoreNews;

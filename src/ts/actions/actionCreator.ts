@@ -2,14 +2,17 @@ import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEW
 import { NewsActionTypes, IArticles } from "../types";
 
 export const fetchNewsPending = (): NewsActionTypes => ({
-  type: FETCH_NEWS_PENDING
+  type: FETCH_NEWS_PENDING,
 })
 
-export const fetchNewsSuccess = (news: IArticles[]): NewsActionTypes => ({
+export const fetchNewsSuccess = (news: IArticles[], searchText: string): NewsActionTypes => ({
   type: FETCH_NEWS_SUCCESS,
-  payload: [
-    ...news
-  ]
+  payload: {
+    news: [
+      ...news
+    ],
+    searchText: searchText
+  }
 })
 
 export const fetchNewsError = (error: string): NewsActionTypes => ({
@@ -19,7 +22,9 @@ export const fetchNewsError = (error: string): NewsActionTypes => ({
   }
 })
 
-export const showMore = (showedNewsCount: number): NewsActionTypes => ({
+export const showMore = (currentShowedCount: number): NewsActionTypes => ({
   type: SHOW_MORE_NEWS,
-  payload: showedNewsCount
+  payload: {
+    currentShowedCount: currentShowedCount
+  }
 })
