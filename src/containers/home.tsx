@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Dispatch, bindActionCreators } from "redux";
 
-import HeaderWrapper from "../../components/header-wrapper/header-wrapper";
-import Cards from "../../components/cards/cards";
-import Author from "../../components/author/author";
-import Loading from "../../components/loading/loading";
-import NoResult from "../../components/no-result/no-result";
-import BadRequest from "../../components/bad-request/bad-request";
+import HeaderWrapper from "../components/header-wrapper/header-wrapper";
+import Cards from "../components/cards/cards";
+import Author from "../components/author/author";
+import Loading from "../components/loading/loading";
+import NoResult from "../components/no-result/no-result";
+import BadRequest from "../components/bad-request/bad-request";
 
-import { NewsActionTypes, IArticles } from "../../ts/types";
-import { REQUIRED_VALIDATE_INPUT_TEXT, START_SHOWED_NEWS_COUNT } from "../../ts/constants";
-import { fetchNews } from "../../ts/fetchers/fetchNews";
-import { RootState } from "../../ts/reducers/index";
-import { FormContext } from "../../ts/contexts";
-import { showMore } from "../../ts/actions/actionCreator";
-import { INewsState } from "../../ts/reducers/news";
-import { GetNewShowedArticlesCount } from "../../ts/helpers";
+import { NewsActionTypes, IArticles } from "../ts/types";
+import { REQUIRED_VALIDATE_INPUT_TEXT, START_SHOWED_NEWS_COUNT } from "../ts/constants";
+import { fetchNews } from "../ts/fetchers/fetchNews";
+import { RootState } from "../ts/reducers/index";
+import { FormContext } from "../ts/contexts";
+import { showMore } from "../ts/actions/actionCreator";
+import { INewsState } from "../ts/reducers/news";
+import { GetNewShowedArticlesCount } from "../ts/helpers";
 
 
 interface HomeProps {
@@ -88,7 +88,7 @@ class Home extends Component<HomeProps & INewsState, HomeState> {
         onChange: this.handleInputChange,
         onSubmit: this.handleSubmit,
         inputStyle: inputStyle,
-        noValidateText: noValidateText
+        noValidateText: noValidateText,
       }
     }
     const { pending, error, articles, currentShowedCount } = this.props;
@@ -98,7 +98,7 @@ class Home extends Component<HomeProps & INewsState, HomeState> {
       { !pending && error && <BadRequest title={error} modClassName="title_place_bad-request" /> }
       { !pending && currentShowedCount > 0
         ? <Cards news={ articles } showedCount={ currentShowedCount } showMore={ this.showMore }/>
-        : currentShowedCount != START_SHOWED_NEWS_COUNT && <NoResult />}
+        : !pending && currentShowedCount != START_SHOWED_NEWS_COUNT && <NoResult />}
       <Author />
     </FormContext.Provider>
   }
@@ -110,7 +110,7 @@ const mapStateToProps = (state: RootState) => {
     articles: state.news.articles,
     error: state.news.error,
     currentShowedCount: state.news.currentShowedCount,
-    searchText: state.news.searchText,
+    searchText: state.news.searchText
   }
 }
 

@@ -1,4 +1,4 @@
-import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOWED_NEWS_PACK_SIZE, SHOW_MORE_NEWS } from "./constants";
+import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOWED_NEWS_PACK_SIZE, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE } from "./constants";
 
 export interface INewsResponse {
   status: string,
@@ -35,16 +35,14 @@ export interface IHomeContext {
 
 interface IFetchNewsPending {
   type: typeof FETCH_NEWS_PENDING,
-  // payload: {
-  //   searchText: string
-  // }
 }
 
 interface IFetchNewsSuccess {
   type: typeof FETCH_NEWS_SUCCESS,
   payload: {
     news: IArticles[],
-    searchText: string
+    searchText: string,
+    totalResults: number
   }
 }
 
@@ -62,4 +60,11 @@ interface IShowMoreNews {
   }
 }
 
-export type NewsActionTypes = IFetchNewsPending | IFetchNewsError | IFetchNewsSuccess | IShowMoreNews;
+interface IFetchCountInTitle {
+  type: typeof FETCH_COUNT_IN_TITLE,
+  payload: {
+    countInTitle: number
+  }
+}
+
+export type NewsActionTypes = IFetchNewsPending | IFetchNewsError | IFetchNewsSuccess | IShowMoreNews | IFetchCountInTitle;

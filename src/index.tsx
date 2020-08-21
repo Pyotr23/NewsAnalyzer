@@ -5,9 +5,9 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Switch, Route, HashRouter } from "react-router-dom";
-import Home from "./containers/home/home";
+import Home from "./containers/home";
 import About from "./components/about/about";
-import Analytics from "./components/analytics/analytics";
+import Analytics from "./containers/analytics";
 import store from "./ts/store";
 
 ReactDOM.render(

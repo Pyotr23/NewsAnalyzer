@@ -12,6 +12,6 @@ export const FETCH_NEWS_PENDING = "FETCH_NEWS_PENDING";
 export const FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS";
 export const FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR";
 export const SHOW_MORE_NEWS = "SHOW_MORE_NEWS";
-export const WRITE_SEARCH_TEXT = "WRITE_SEARCH_TEXT";
+export const FETCH_COUNT_IN_TITLE = "FETCH_COUNT_IN_TITLE";
 
 export const RUSSIAN_MONTH_NAMES = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
