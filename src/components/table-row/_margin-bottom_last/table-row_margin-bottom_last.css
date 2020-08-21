@@ -1,9 +1,9 @@
-.table__row.table__row_margin-bottom_last {
+.table-row.table-row_margin-bottom_last {
   margin-bottom: 14px;
 }
 
 @media screen and (max-width: 423px){
-  .table__row.table__row_margin-bottom_last {
+  .table-row.table-row_margin-bottom_last {
     margin-bottom: 0;
   }
 }

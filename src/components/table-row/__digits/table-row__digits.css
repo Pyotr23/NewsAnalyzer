@@ -1,4 +1,4 @@
-.table__digits {
+.table-row__digits {
   display: none;
   flex-direction: row;
   padding-left: 0;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (min-width: 423px){
-  .table__digits {
+  .table-row__digits {
     display: flex;
   }
 }

@@ -1,5 +1,5 @@
 @import url(./_margin-bottom/table__row_margin-bottom.css);
-@import url(./_margin-bottom_last/table__row_margin-bottom_last.css);
+@import url(./_margin/table__row_margin.css);
 
 .table__row {
   display: flex;
