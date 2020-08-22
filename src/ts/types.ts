@@ -1,12 +1,19 @@
-import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOWED_NEWS_PACK_SIZE, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE } from "./constants";
+import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE } from "./constants";
+
+export interface ITableRow {
+  dateTime: Date,
+  day: string,
+  count: number,
+  percent: number
+}
 
 export interface INewsResponse {
   status: string,
   totalResults: number,
-  articles: IArticles[]
+  articles: IArticle[]
 }
 
-export interface IArticles {
+export interface IArticle {
   source: ISource,
   author: string,
   title: string,
@@ -40,7 +47,7 @@ interface IFetchNewsPending {
 interface IFetchNewsSuccess {
   type: typeof FETCH_NEWS_SUCCESS,
   payload: {
-    news: IArticles[],
+    news: IArticle[],
     searchText: string,
     totalResults: number
   }

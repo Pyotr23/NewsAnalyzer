@@ -1,9 +1,9 @@
 import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, BAD_NEWS_API_RESULT, SHOW_MORE_NEWS, START_SHOWED_NEWS_COUNT, FETCH_COUNT_IN_TITLE } from "../constants";
-import { IArticles, NewsActionTypes } from "../types";
+import { IArticle, NewsActionTypes } from "../types";
 
 export interface INewsState {
   pending: boolean,
-  articles: IArticles[],
+  articles: IArticle[],
   error: string,
   currentShowedCount: number,
   searchText: string,

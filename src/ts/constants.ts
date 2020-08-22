@@ -14,4 +14,6 @@ export const FETCH_NEWS_ERROR = "FETCH_NEWS_ERROR";
 export const SHOW_MORE_NEWS = "SHOW_MORE_NEWS";
 export const FETCH_COUNT_IN_TITLE = "FETCH_COUNT_IN_TITLE";
 
-export const RUSSIAN_MONTH_NAMES = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+export const QUESTION_RUSSIAN_MONTH_NAMES = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+export const RUSSIAN_MONTH_NAMES = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
+export const RUSSIAN_DAY_OF_WEEK_NAMES = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];

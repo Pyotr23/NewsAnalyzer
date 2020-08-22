@@ -1,11 +1,11 @@
 import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE } from "../constants";
-import { NewsActionTypes, IArticles } from "../types";
+import { NewsActionTypes, IArticle } from "../types";
 
 export const fetchNewsPending = (): NewsActionTypes => ({
   type: FETCH_NEWS_PENDING,
 })
 
-export const fetchNewsSuccess = (news: IArticles[], searchText: string, total: number): NewsActionTypes => ({
+export const fetchNewsSuccess = (news: IArticle[], searchText: string, total: number): NewsActionTypes => ({
   type: FETCH_NEWS_SUCCESS,
   payload: {
     news: [

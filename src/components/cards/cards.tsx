@@ -4,10 +4,10 @@ import Title from "../title/title";
 import Ref from "../ref/ref";
 import Card from "../card/card";
 import Button from "../button/button";
-import { IArticles } from "../../ts/types";
+import { IArticle } from "../../ts/types";
 
 type CardsProps = {
-  news: IArticles[],
+  news: IArticle[],
   showedCount: number,
   showMore: () => void
 }

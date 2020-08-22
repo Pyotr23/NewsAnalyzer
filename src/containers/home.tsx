@@ -9,7 +9,7 @@ import Loading from "../components/loading/loading";
 import NoResult from "../components/no-result/no-result";
 import BadRequest from "../components/bad-request/bad-request";
 
-import { NewsActionTypes, IArticles } from "../ts/types";
+import { NewsActionTypes, IArticle } from "../ts/types";
 import { REQUIRED_VALIDATE_INPUT_TEXT, START_SHOWED_NEWS_COUNT } from "../ts/constants";
 import { fetchNews } from "../ts/fetchers/fetchNews";
 import { RootState } from "../ts/reducers/index";
@@ -20,7 +20,7 @@ import { GetNewShowedArticlesCount } from "../ts/helpers";
 
 
 interface HomeProps {
-  fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | IArticles[]>,
+  fetchNews: (question: string) => (dispatch: Dispatch<NewsActionTypes>) => Promise<void | IArticle[]>,
   showMore: (count: number) => NewsActionTypes,
 }
 

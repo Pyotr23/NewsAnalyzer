@@ -2,7 +2,8 @@ import React from "react";
 import "./card.css";
 import stubImage from "../../images/cards/womanyellingcat.jpg";
 import Ref from "../ref/ref";
-import { RUSSIAN_MONTH_NAMES }  from "../../ts/constants";
+import { QUESTION_RUSSIAN_MONTH_NAMES }  from "../../ts/constants";
+import { ITableRow } from "../../ts/types";
 
 interface ICardProps {
   url: string,
@@ -29,7 +30,7 @@ class Card extends React.Component<ICardProps, ICardState>{
   private format = (dateTime: Date): string => {
     const date = new Date(dateTime);
     const day = date.getDate();
-    const month = RUSSIAN_MONTH_NAMES[date.getMonth()];
+    const month = QUESTION_RUSSIAN_MONTH_NAMES[date.getMonth()];
     const year = date.getFullYear();
     return `${day} ${month}, ${year}`;
   }
