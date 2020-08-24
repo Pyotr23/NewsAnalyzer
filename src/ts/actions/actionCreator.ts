@@ -1,5 +1,5 @@
-import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE } from "../constants";
-import { NewsActionTypes, IArticle } from "../types";
+import { FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE, FETCH_COMMITS_SUCCESS } from "../constants";
+import { NewsActionTypes, IArticle, ICommitCard, IFetchCommitsSuccess } from "../types";
 
 export const fetchNewsPending = (): NewsActionTypes => ({
   type: FETCH_NEWS_PENDING,
@@ -34,5 +34,12 @@ export const fetchCountInTitleSuccess = (count: number): NewsActionTypes => ({
   type: FETCH_COUNT_IN_TITLE,
   payload: {
     countInTitle: count
+  }
+})
+
+export const fetchCommitsSuccess = (commitCards: ICommitCard[]): IFetchCommitsSuccess => ({
+  type: FETCH_COMMITS_SUCCESS,
+  payload: {
+    commitCards: commitCards
   }
 })

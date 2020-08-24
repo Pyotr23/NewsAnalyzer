@@ -71,13 +71,6 @@ class Table extends Component{
           <TableRow key={ index } day={ day } count={ count } widthInPercent={ percent } modificator={index === this.rows.length - 1 ? "table-row_margin-bottom_last" : undefined}/>
         ))
       }
-      {/* <TableRow day="19, пн" count={ 15 } widthInPercent={10}/>
-      <TableRow day="20, вт" count={ 15 } widthInPercent={20}/>
-      <TableRow day="21, ср" count={ 15 } widthInPercent={30}/>
-      <TableRow day="22, чт" count={ 15 } widthInPercent={40}/>
-      <TableRow day="23, пт" count={ 15 } widthInPercent={50}/>
-      <TableRow day="24, сб" count={ 15 } widthInPercent={60} />
-      <TableRow day="25, вс" count={ 15 } widthInPercent={70} modificator=/> */}
       <ScaleTableRow />
     </div>
   }
