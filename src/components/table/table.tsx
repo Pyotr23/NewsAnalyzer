@@ -32,19 +32,17 @@ class Table extends Component{
   private createRows = (): void => {
     console.log(new Date().getDate());
     for (let i = DAYS_AGO_COUNT; i >= 0; i--){
-      const dateTime = new Date(new Date().toISOString().substring(0, 10));
+      const dateTime = new Date();
       dateTime.setDate(dateTime.getDate() - i);
-      const day = `${dateTime.getDate()}, ${RUSSIAN_DAY_OF_WEEK_NAMES[dateTime.getDay()]}`;
-      this.rows.push({ dateTime, day, count: 0, percent: 0 });
+      const dayNumber = dateTime.getDate();
+      const day = `${dayNumber}, ${RUSSIAN_DAY_OF_WEEK_NAMES[dateTime.getDay()]}`;
+      this.rows.push({ dayNumber, day, count: 0, percent: 0 });
     }
   }
 
   private fillCount() {
-    console.log(this.rows);
     for (let i = 0, j = this.rows.length - 1; i < this.articles.length; ){
-      console.log(new Date(this.articles[i].publishedAt));
-      console.log(`${i} - ${j}`);
-      if (new Date(this.articles[i].publishedAt).getDate() === new Date(this.rows[j].dateTime).getDate()){
+      if (new Date(this.articles[i].publishedAt).getDate() === this.rows[j].dayNumber){
         this.rows[j].count++;
         i++;
       }

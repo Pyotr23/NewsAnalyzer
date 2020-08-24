@@ -1,7 +1,7 @@
 import {  FETCH_NEWS_ERROR, FETCH_NEWS_PENDING, FETCH_NEWS_SUCCESS, SHOW_MORE_NEWS, FETCH_COUNT_IN_TITLE } from "./constants";
 
 export interface ITableRow {
-  dateTime: Date,
+  dayNumber: number,
   day: string,
   count: number,
   percent: number
