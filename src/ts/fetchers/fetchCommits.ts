@@ -4,7 +4,7 @@ import { Dispatch } from "react";
 import { getCommits } from "../modules/GitHubApi";
 import CommitCard from "../commiCard";
 
-export const fetchCommits = () => async (dispatch: Dispatch<NewsActionTypes | IFetchCommitsSuccess>) => {
+export const fetchCommits = () => async (dispatch: Dispatch<IFetchCommitsSuccess>) => {
     // dispatch(fetchNewsPending());
     try {
       const res = await getCommits<IDetailedCommit[]>();
@@ -14,6 +14,8 @@ export const fetchCommits = () => async (dispatch: Dispatch<NewsActionTypes | IF
       return cards;
     }
     catch (error) {
-      return dispatch(fetchNewsError(error));
+      return new Array<CommitCard>();
+
+      // return dispatch(fetchNewsError(error));
     }
   }
